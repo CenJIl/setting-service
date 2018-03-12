@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 引入配置 -->
+    <context:property-placeholder location="classpath:configs/dubbo.properties"/>
+    <!-- 服务名称，版本，分组，开发者 -->
+    <dubbo:application name="${dubbo.name}" organization="dubbo" owner="${dubbo.owner}" version="${dubbo.version}"/>
+    <!-- zookeeper注册中心地址 -->
+    <dubbo:registry protocol="zookeeper" address="${dubbo.address}"/>
+    <!-- dubbo端口 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.port}" threads="${dubbo.threads}"/>
+    <!-- userService服务接口 -->
+    <!--<dubbo:service interface="com.qcdl.service.impl.UserServiceI" protocol="dubbo" ref="userService" timeout="${dubbo.timeout}"/>-->
+</beans>

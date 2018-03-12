@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcdl.model.mapper.SettingInformationMapper">
+  <resultMap id="BaseResultMap" type="com.qcdl.model.entity.SettingInformation">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="industry" jdbcType="VARCHAR" property="industry" />
+    <result column="two_level_industry" jdbcType="VARCHAR" property="twoLevelIndustry" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="admin_id" jdbcType="INTEGER" property="adminId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="deleted" jdbcType="INTEGER" property="deleted" />
+  </resultMap>
+</mapper>
