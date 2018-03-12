@@ -4,10 +4,6 @@
 //import com.qcdl.rest.dto.LoginDto;
 //import com.qcdl.rest.param.LoginParam;
 //import com.qcdl.rest.param.PasswordParam;
-//import com.qcdl.service.impl.UserLogServiceI;
-//import com.qcdl.service.impl.PermissionServiceI;
-//import com.qcdl.service.impl.UserServiceI;
-//import com.qcdl.utils.VerifyCodeUtils;
 //import io.swagger.annotations.*;
 //import org.restful.api.filter.authority.AuthType;
 //import org.restful.api.filter.authority.Authority;
@@ -46,7 +42,7 @@
 //    @ApiOperation(value = "获取当前登陆的用户")
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
 //    @ApiResponses({@ApiResponse(code = 600, message = "登录状态失效")})
-//    public User current(@Context HttpServletRequest request) {
+//    public void current(@Context HttpServletRequest request) {
 //        return SessionUtil.getUser(request, User.class);
 //    }
 //
@@ -183,6 +179,6 @@
 //    public void toggleAdmin(@ApiParam(value = "用户ID", required = true) @PathParam("id") Integer id, @Context HttpServletRequest request) {
 //        userService.toggle(id);
 //    }
-//
-//
+
+
 //}

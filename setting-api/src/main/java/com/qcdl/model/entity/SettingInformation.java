@@ -1,10 +1,13 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Table(name = "setting_information")
+@ApiModel("案例管理")
 public class SettingInformation implements Serializable {
     /**
      * id

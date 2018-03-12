@@ -1,9 +1,12 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Table(name = "mark_case")
+@ApiModel("案例已读未读")
 public class MarkCase implements Serializable {
     /**
      * 案例已读id

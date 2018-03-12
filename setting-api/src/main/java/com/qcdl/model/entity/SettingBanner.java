@@ -1,10 +1,13 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Table(name = "setting_banner")
+@ApiModel("广告管理")
 public class SettingBanner implements Serializable {
     /**
      * 广告id

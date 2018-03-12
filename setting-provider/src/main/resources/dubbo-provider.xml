@@ -19,4 +19,6 @@
     <dubbo:protocol name="dubbo" port="${dubbo.port}" threads="${dubbo.threads}"/>
     <!-- userService服务接口 -->
     <!--<dubbo:service interface="com.qcdl.service.impl.UserServiceI" protocol="dubbo" ref="userService" timeout="${dubbo.timeout}"/>-->
+    <!--BannerServiceI服务接口-->
+    <dubbo:service interface="com.qcdl.service.impl.BannerServiceI" protocol="dubbo" ref="bannerService" timeout="${dubbo.timeout}"/>
 </beans>
