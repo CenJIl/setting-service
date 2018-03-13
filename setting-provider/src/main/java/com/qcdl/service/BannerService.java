@@ -2,6 +2,7 @@ package com.qcdl.service;
 
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.dao.BannerDao;
+import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
@@ -25,9 +26,13 @@ public class BannerService implements BannerServiceI {
     }
 
     @Override
-    public void bannerUpdate(Integer id, BannerParam bannerParam) {
-        dao.bannerUpdate(id, bannerParam);
+    public void bannerUpdate(SettingBanner banner){
+        dao.bannerUpdate(banner);
     }
 
+    @Override
+    public void bannerDelete(Integer id){
+        dao.bannerDelete(id);
+    }
 
 }

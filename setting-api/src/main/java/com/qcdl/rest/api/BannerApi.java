@@ -2,6 +2,7 @@ package com.qcdl.rest.api;
 
 
 import com.github.pagehelper.PageInfo;
+import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
@@ -47,15 +48,29 @@ public class BannerApi {
     /**
      * 修改广告
      *
-     * @param id 广告id
+     * @param banner 广告参数
      */
-    @POST
-    @Path("/update/{id}")
+    @PUT
+    @Path("/update")
     @ApiOperation(value = "查询广告列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void bannerUpdate(@ApiParam(value = "id", required = true) @PathParam("id") Integer id, BannerParam bannerParam) {
-        bannerService.bannerUpdate(id, bannerParam);
+    public void bannerUpdate(@ApiParam(value = "广告参数", required = true)SettingBanner banner) {
+        bannerService.bannerUpdate(banner);
+    }
+
+    /**
+     * 删除一条广告
+     *
+     * @param id 广告id
+     */
+    @DELETE
+    @Path("/delete/{id}")
+    @ApiOperation(value = "删除广告")
+    @Authority(AuthType.不检查)
+//    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
+    public void bannerDelete(@ApiParam(value = "广告id", required = true) @PathParam("id") Integer id) {
+        bannerService.bannerDelete(id);
     }
 
 

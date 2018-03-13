@@ -12,8 +12,8 @@ public class BannerTest {
 
     @Test
     public void test() {
-        BannerParam bannerParam = new BannerParam();
-        bannerParam.setName("word");
-        service.bannerUpdate(1, bannerParam);
+//        BannerParam bannerParam = new BannerParam();
+//        bannerParam.setName("word");
+//        service.bannerUpdate(bannerParam);
     }
 }

@@ -15,4 +15,5 @@ public interface SettingBannerMapper extends Mapper<SettingBanner>, MySqlMapper<
      * @return
      */
     List<BannerParam> bannerList(BannerParam bannerParam);
+
 }

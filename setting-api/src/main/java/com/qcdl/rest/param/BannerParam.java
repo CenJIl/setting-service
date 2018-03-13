@@ -15,7 +15,12 @@ import java.util.Date;
  * @author Administrator
  */
 @ApiModel
-public class BannerParam extends SettingBanner {
+public class BannerParam implements Serializable {
+
+    /**
+     * 广告id
+     */
+    private Integer id;
 
     /**
      * 广告名称
@@ -48,7 +53,31 @@ public class BannerParam extends SettingBanner {
     @Column(name = "create_time")
     private Date createTime;
 
+    /**
+     * 更新时间
+     */
+    @Column(name = "update_time")
+    private Date updateTime;
+
     private static final long serialVersionUID = 1L;
+
+    /**
+     * 获取广告id
+     *
+     * @return id - 广告id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * 设置广告id
+     *
+     * @param id 广告id
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     /**
      * 获取广告名称
@@ -158,49 +187,22 @@ public class BannerParam extends SettingBanner {
         this.createTime = createTime;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", name=").append(name);
-        sb.append(", picture=").append(picture);
-        sb.append(", url=").append(url);
-        sb.append(", position=").append(position);
-        sb.append(", weight=").append(weight);
-        sb.append("]");
-        return sb.toString();
+    /**
+     * 获取更新时间
+     *
+     * @return update_time - 更新时间
+     */
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        SettingBanner other = (SettingBanner) that;
-        return (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getPicture() == null ? other.getPicture() == null : this.getPicture().equals(other.getPicture()))
-                && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-                && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
-                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()));
+    /**
+     * 设置更新时间
+     *
+     * @param updateTime 更新时间
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getPicture() == null) ? 0 : getPicture().hashCode());
-        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
-        result = prime * result + ((getPosition() == null) ? 0 : getPosition().hashCode());
-        result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
-        return result;
-    }
 }
