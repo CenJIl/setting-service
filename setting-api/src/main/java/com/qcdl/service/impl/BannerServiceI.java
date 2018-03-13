@@ -19,4 +19,5 @@ public interface BannerServiceI {
      */
     PageInfo<BannerParam> bannerList(PageParam pageParam);
 
+    void bannerUpdate(Integer id, BannerParam bannerParam);
 }

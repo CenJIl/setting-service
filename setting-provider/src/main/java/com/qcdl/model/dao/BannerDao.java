@@ -1,6 +1,7 @@
 package com.qcdl.model.dao;
 
 import com.github.pagehelper.PageHelper;
+import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.model.mapper.SettingBannerMapper;
 import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.BannerParam;
@@ -27,5 +28,11 @@ public class BannerDao {
         }
         BannerParam bannerParam = new BannerParam();
         return mapper.bannerList(bannerParam);
+    }
+
+    public void bannerUpdate(Integer id, BannerParam bannerParam) {
+        SettingBanner settingBanner = bannerParam;
+        settingBanner.setId(id);
+        mapper.updateByPrimaryKeySelective(settingBanner);
     }
 }

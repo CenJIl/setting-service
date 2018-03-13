@@ -24,4 +24,10 @@ public class BannerService implements BannerServiceI {
         return new PageInfo<>(dao.bannerList(pageParam));
     }
 
+    @Override
+    public void bannerUpdate(Integer id, BannerParam bannerParam) {
+        dao.bannerUpdate(id, bannerParam);
+    }
+
+
 }
