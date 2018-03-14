@@ -10,6 +10,7 @@ public interface InformationServicel {
      * 查询资讯管理列表
      *
      * @param pageParam
+     * @param name
      * @return
      */
     PageInfo<InformationParam> informationlist(PageParam pageParam, String name);
