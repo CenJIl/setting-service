@@ -24,7 +24,12 @@ public interface BannerServiceI {
      *
      * @param banner
      */
-    void bannerUpdate(SettingBanner banner);
+    void bannerUpdate(BannerParam banner);
 
+    /**
+     * 根据id删除一条广告
+     *
+     * @param id 广告id
+     */
     void bannerDelete(Integer id);
 }

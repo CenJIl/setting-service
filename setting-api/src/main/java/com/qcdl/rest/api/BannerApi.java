@@ -55,7 +55,7 @@ public class BannerApi {
     @ApiOperation(value = "查询广告列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void bannerUpdate(@ApiParam(value = "广告参数", required = true)SettingBanner banner) {
+    public void bannerUpdate(@ApiParam(value = "广告参数", required = true)BannerParam banner) {
         bannerService.bannerUpdate(banner);
     }
 
