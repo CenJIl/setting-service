@@ -26,6 +26,6 @@
             <!--</if>-->
             deleted = 0
         </trim>
-
+        ORDER BY weight ASC
     </select>
 </mapper>

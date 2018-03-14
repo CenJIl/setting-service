@@ -16,7 +16,7 @@ import java.util.Date;
  * @author Administrator
  */
 @ApiModel
-public class BannerParam implements Serializable {
+public class BannerParam extends SettingBanner {
 
     /**
      * 广告id
