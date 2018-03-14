@@ -45,7 +45,7 @@ public class SettingInformation implements Serializable {
     /**
      * 作者
      */
-    @ApiModelProperty(value="案例名称",example="1")
+    @ApiModelProperty(value="作者",example="作者")
     private String author;
 
     /**
