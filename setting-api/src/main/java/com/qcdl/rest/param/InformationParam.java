@@ -8,7 +8,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 @ApiModel
+
 public class InformationParam extends SettingInformation {
+
+
     private Integer id;
     private String name;
     private String cover;
