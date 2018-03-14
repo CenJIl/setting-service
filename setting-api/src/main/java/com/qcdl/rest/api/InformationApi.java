@@ -1,6 +1,5 @@
 package com.qcdl.rest.api;
 
-
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingInformation;
 import com.qcdl.model.param.PageParam;
@@ -16,6 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * Created by hxh on 2018/3/14.
+ */
 @Path("/information")
 @Api("资讯管理")
 @Produces(MediaType.APPLICATION_JSON)
@@ -71,8 +73,5 @@ public class InformationApi {
     //  @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public void Add(@ApiParam(value = "广告内容", required = true) SettingInformation information) {
         informationService.informationAdd(information);
-
-
-
-}
+    }
 }
