@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.wzd:dubbox-client:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/wzd/dubbox-client/1.0.0-SNAPSHOT/dubbox-client-1.0.0-20180301.053146-99.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/wzd/dubbox-client/1.0.0-SNAPSHOT/dubbox-client-1.0.0-20180301.053146-99-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/wzd/dubbox-client/1.0.0-SNAPSHOT/dubbox-client-1.0.0-20180301.053146-99-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
