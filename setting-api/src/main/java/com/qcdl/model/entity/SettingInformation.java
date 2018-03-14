@@ -52,33 +52,33 @@ public class SettingInformation implements Serializable {
      * 管理员id
      */
     @Column(name = "admin_id")
-    @ApiModelProperty(value="案例名称",example="1")
+    @ApiModelProperty(value="管理员id",example="1")
     private Integer adminId;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
-    @ApiModelProperty(value="案例名称",example="1")
+    @ApiModelProperty(value="创建时间",example="2018-3-14 15:49:05")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
-    @ApiModelProperty(value="案例名称",example="1")
+    @ApiModelProperty(value="更新时间",example="2018-3-14 15:49:11")
     private Date updateTime;
 
     /**
      * 版本号
      */
-    @ApiModelProperty(value="案例名称",example="1")
+    @ApiModelProperty(value="版本号",example="1")
     private Integer version;
 
     /**
      * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
      */
-    @ApiModelProperty(value="案例名称",example="1")
+    @ApiModelProperty(value="删除状态(默认启用):0.启用;1.禁用;2.已删除;",example="1")
     private Integer deleted;
 
     private static final long serialVersionUID = 1L;
