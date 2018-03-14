@@ -6,7 +6,6 @@ import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
-import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,17 +26,20 @@ public class BannerService implements BannerServiceI {
     }
 
     @Override
-    public void bannerUpdate(BannerParam banner) {
-        Boolean flag = dao.getId(banner.getId());
-        Assert.isTrue(flag, "广告不存在!");
+    public void bannerUpdate(SettingBanner banner) {
         dao.bannerUpdate(banner);
     }
 
     @Override
     public void bannerDelete(Integer id) {
-        Boolean flag = dao.getId(id);
-        Assert.isTrue(flag, "广告不存在!");
         dao.bannerDelete(id);
     }
 
+    @Override
+    public void bannerAdd(SettingBanner banner) {
+        dao.bannerAdd(banner);
+    }
 }
+
+
+
