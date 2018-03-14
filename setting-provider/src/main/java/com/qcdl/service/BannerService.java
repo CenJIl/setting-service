@@ -26,13 +26,20 @@ public class BannerService implements BannerServiceI {
     }
 
     @Override
-    public void bannerUpdate(SettingBanner banner){
+    public void bannerUpdate(SettingBanner banner) {
         dao.bannerUpdate(banner);
     }
 
     @Override
-    public void bannerDelete(Integer id){
+    public void bannerDelete(Integer id) {
         dao.bannerDelete(id);
     }
 
+    @Override
+    public void bannerAdd(SettingBanner banner) {
+        dao.bannerAdd(banner);
+    }
 }
+
+
+

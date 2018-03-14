@@ -1,18 +1,23 @@
 package com.qcdl.rest.api;
 
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 import org.restful.api.filter.authority.AuthType;
 import org.restful.api.filter.authority.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -55,7 +60,7 @@ public class BannerApi {
     @ApiOperation(value = "查询广告列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void bannerUpdate(@ApiParam(value = "广告参数", required = true)SettingBanner banner) {
+    public void bannerUpdate(@ApiParam(value = "广告参数", required = true) SettingBanner banner) {
         bannerService.bannerUpdate(banner);
     }
 
@@ -73,5 +78,18 @@ public class BannerApi {
         bannerService.bannerDelete(id);
     }
 
-
+    /**
+     * @param banner
+     */
+    @POST
+    @Path("/add")
+    @ApiOperation(value = "增加广告")
+    @Authority(AuthType.不检查)
+    //  @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
+    public void bannerAdd(@ApiParam(value = "广告内容", required = true) SettingBanner banner) {
+        bannerService.bannerAdd(banner);
+    }
 }
+
+
+

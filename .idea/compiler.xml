@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="setting-api" />
+        <module name="setting-client" />
+        <module name="setting-provider" />
+        <module name="web-rest" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="setting-api" target="1.8" />
+      <module name="setting-client" target="1.8" />
+      <module name="setting-provider" target="1.8" />
+      <module name="setting-service" target="1.5" />
+      <module name="web-rest" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

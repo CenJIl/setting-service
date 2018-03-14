@@ -43,4 +43,8 @@ public class BannerDao {
         banner.setDeleted(DeleteType.已删除.getCode());
         mapper.updateByPrimaryKeySelective(banner);
     }
+
+    public void bannerAdd(SettingBanner banner) {
+        mapper.insertSelective(banner);
+    }
 }
