@@ -16,7 +16,7 @@ public class SpecialService implements SpecialServiceI {
     private SpecialDao dao;
 
     @Override
-    public PageInfo<SpecialParam> specialList(PageParam pageParam) {
+    public PageInfo<SettingSpecial> specialList(PageParam pageParam) {
         return new PageInfo<>(dao.specialList(pageParam));
     }
 

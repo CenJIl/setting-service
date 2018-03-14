@@ -36,7 +36,7 @@ public class SpecialApi {
     @ApiOperation(value = "查询专题列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public PageInfo<SpecialParam> specialList(@ApiParam(value = "分页参数", required = true) PageParam pageParam) {
+    public PageInfo<SettingSpecial> specialList(@ApiParam(value = "分页参数", required = true) PageParam pageParam) {
         return specialService.specialList(pageParam);
     }
 

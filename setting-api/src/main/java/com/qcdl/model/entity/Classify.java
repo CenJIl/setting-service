@@ -1,5 +1,7 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,17 +15,20 @@ public class Classify implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value = "分类id", example = "1")
     private Integer id;
 
     /**
      * 分类名称
      */
+    @ApiModelProperty(value = "分类名称", example = "1")
     private String name;
 
     /**
      * 分类父id(0为无父id)
      */
     @Column(name = "parent_id")
+    @ApiModelProperty(value = "分类id", example = "1")
     private Integer parentId;
 
     /**

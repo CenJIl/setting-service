@@ -9,5 +9,4 @@ import java.util.List;
 
 public interface SettingSpecialMapper extends Mapper<SettingSpecial>, MySqlMapper<SettingSpecial> {
 
-    List<SpecialParam> specialList(SpecialParam specialParam);
 }

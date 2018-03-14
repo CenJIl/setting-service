@@ -1,7 +1,7 @@
 package com.qcdl.model.mapper;
 
 import com.qcdl.model.entity.SettingBanner;
-import com.qcdl.rest.param.BannerParam;
+import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
@@ -11,9 +11,9 @@ public interface SettingBannerMapper extends Mapper<SettingBanner>, MySqlMapper<
     /**
      * 查询广告列表
      *
-     * @param bannerParam
+     * @param position
      * @return
      */
-    List<BannerParam> bannerList(BannerParam bannerParam);
+    List<SettingBanner> bannerList(@Param(value = "position") Integer position);
 
 }

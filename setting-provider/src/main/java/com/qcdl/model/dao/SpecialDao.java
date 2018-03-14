@@ -6,8 +6,8 @@ import com.qcdl.model.entity.SettingSpecial;
 import com.qcdl.model.enums.DeleteType;
 import com.qcdl.model.mapper.SettingSpecialMapper;
 import com.qcdl.model.param.PageParam;
-import com.qcdl.rest.param.SpecialParam;
 import org.springframework.stereotype.Component;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -19,12 +19,13 @@ public class SpecialDao {
     @Resource
     private SettingSpecialMapper mapper;
 
-    public List<SpecialParam> specialList(PageParam pageParam) {
+    public List<SettingSpecial> specialList(PageParam pageParam) {
         if (pageParam.getPageSize() != null && pageParam.getPageSize() > 0) {
             PageHelper.startPage(pageParam.getPage(), pageParam.getPageSize());
         }
-        SpecialParam specialParam = new SpecialParam();
-        return mapper.specialList(specialParam);
+        Example example = new Example(SettingSpecial.class);
+        example.createCriteria().andEqualTo("deleted", 0);
+        return mapper.selectByExample(example);
     }
 
     public void specialUpdate(SettingSpecial special) {

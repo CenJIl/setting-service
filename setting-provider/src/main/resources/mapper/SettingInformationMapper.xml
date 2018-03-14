@@ -30,10 +30,10 @@
         setting_information AS si
         LEFT JOIN classify AS c ON si.industry = c.id
         WHERE deleted = 0
-        <if test="name != null and name != ''">
+        <if test="name != null and name &gt; 0">
             AND si.`name` LIKE CONCAT('%',#{name},'%')
         </if>
-        <if test="ClassifyId != null and ClassifyId > 0">
+        <if test="ClassifyId != null and ClassifyId &gt; 0">
             AND c.id = #{ClassifyId}
         </if>
         ORDER BY

@@ -14,10 +14,10 @@ public interface BannerServiceI {
     /**
      * 查询广告列表
      *
-     * @param pageParam
+     * @param bannerParam
      * @return
      */
-    PageInfo<BannerParam> bannerList(PageParam pageParam);
+    PageInfo<SettingBanner> bannerList(BannerParam bannerParam);
 
     /**
      * 编辑广告内容

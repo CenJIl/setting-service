@@ -13,7 +13,7 @@ public interface SpecialServiceI {
      * @param pageParm
      * @return
      */
-    PageInfo<SpecialParam> specialList(PageParam pageParm);
+    PageInfo<SettingSpecial> specialList(PageParam pageParm);
 
     /**
      * 编辑专题内容

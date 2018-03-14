@@ -1,23 +1,17 @@
 package com.qcdl.rest.api;
 
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingBanner;
-import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
 import org.restful.api.filter.authority.AuthType;
 import org.restful.api.filter.authority.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.PostConstruct;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -38,7 +32,7 @@ public class BannerApi {
     /**
      * 分页查询广告列表
      *
-     * @param pageParam 分页参数
+     * @param bannerParam 分页参数
      * @return
      */
     @POST
@@ -46,8 +40,8 @@ public class BannerApi {
     @ApiOperation(value = "查询广告列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public PageInfo<BannerParam> bannerList(@ApiParam(value = "分页参数", required = true) PageParam pageParam) {
-        return bannerService.bannerList(pageParam);
+    public PageInfo<SettingBanner> bannerList(@ApiParam(value = "广告参数") BannerParam bannerParam) {
+        return bannerService.bannerList(bannerParam);
     }
 
     /**
@@ -56,11 +50,11 @@ public class BannerApi {
      * @param banner 广告参数
      */
     @PUT
-    @Path("/update")
+    @Path("/update/{id}")
     @ApiOperation(value = "查询广告列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void bannerUpdate(@ApiParam(value = "广告参数", required = true) SettingBanner banner) {
+    public void bannerUpdate(@ApiParam(value = "广告参数", required = true) SettingBanner banner, @PathParam("id") Integer id) {
         bannerService.bannerUpdate(banner);
     }
 

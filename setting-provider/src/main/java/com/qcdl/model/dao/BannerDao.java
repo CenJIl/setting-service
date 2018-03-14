@@ -4,9 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.model.enums.DeleteType;
 import com.qcdl.model.mapper.SettingBannerMapper;
-import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.BannerParam;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -24,12 +22,11 @@ public class BannerDao {
     @Resource
     private SettingBannerMapper mapper;
 
-    public List<BannerParam> bannerList(PageParam pageParam) {
-        if (pageParam.getPageSize() != null && pageParam.getPageSize() > 0) {
-            PageHelper.startPage(pageParam.getPage(), pageParam.getPageSize());
+    public List<SettingBanner> bannerList(BannerParam bannerParam) {
+        if (bannerParam.getPageSize() != null && bannerParam.getPageSize() > 0) {
+            PageHelper.startPage(bannerParam.getPage(), bannerParam.getPageSize());
         }
-        BannerParam bannerParam = new BannerParam();
-        return mapper.bannerList(bannerParam);
+        return mapper.bannerList(bannerParam.getPosition());
     }
 
     public void bannerUpdate(SettingBanner banner) {
