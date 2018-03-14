@@ -1,5 +1,6 @@
 package com.qcdl.rest.param;
 
+import com.qcdl.model.entity.SettingInformation;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.Column;
@@ -8,7 +9,7 @@ import java.util.Date;
 
 @ApiModel
 
-public class InformationParam  {
+public class InformationParam extends SettingInformation {
 
 
     private Integer id;

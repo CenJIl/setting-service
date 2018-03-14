@@ -26,6 +26,7 @@
             <!--</if>-->
             deleted = 0
         </trim>
+        ORDER BY weight ASC
     </select>
 
     <!--<update id="bannerUpdate" parameterType="com.qcdl.model.entity.SettingBanner">-->
