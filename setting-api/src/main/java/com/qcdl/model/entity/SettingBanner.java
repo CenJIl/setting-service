@@ -1,6 +1,7 @@
 package com.qcdl.model.entity;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,63 +11,74 @@ import java.util.Date;
 @ApiModel("广告管理")
 public class SettingBanner implements Serializable {
     /**
+     * 广告名称
+     */
+    @ApiModelProperty(value="广告名称",example="这是一条广告")
+    private String name;
+
+    /**
      * 广告id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value="广告id",example="1")
     private Integer id;
-
-    /**
-     * 广告名称
-     */
-    private String name;
 
     /**
      * 广告图片
      */
+    @ApiModelProperty(value="广告图片",example="123.jpg")
     private String picture;
 
     /**
      * 广告链接
      */
+    @ApiModelProperty(value="广告链接",example="1")
     private String url;
 
     /**
      * 广告位置()
      */
+    @ApiModelProperty(value="广告位置",example="1")
     private Integer position;
 
     /**
      * 权重值,数值越小越靠前，最大999，最小0
      */
+    @ApiModelProperty(value="权重值,数值越小越靠前，最大999，最小0",example="1")
     private Integer weight;
 
     /**
      * 管理员id
      */
     @Column(name = "admin_id")
+    @ApiModelProperty(value="管理员id",example="1")
     private Integer adminId;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
+    @ApiModelProperty(value="创建时间",example="2018-3-14 11:42:53")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
+    @ApiModelProperty(value="更新时间",example="2018-3-14 11:43:07")
     private Date updateTime;
 
     /**
      * 版本号
      */
+    @ApiModelProperty(value="版本号",example="1", hidden = true)
     private Integer version;
 
     /**
      * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
      */
+    @ApiModelProperty(value="删除状态(默认启用):0.启用;1.禁用;2.已删除;",example="1", hidden = true)
     private Integer deleted;
 
     private static final long serialVersionUID = 1L;

@@ -1,6 +1,7 @@
 package com.qcdl.model.entity;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,11 +15,13 @@ public class SettingInformation implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value="案例id",example="1")
     private Integer id;
 
     /**
      * 案例名称
      */
+    @ApiModelProperty(value="案例名称",example="1")
     private String name;
 
     /**
