@@ -14,9 +14,8 @@ public class InformationService implements InformationServicel {
     @Autowired
     private InformationDao dao;
 
-
     @Override
-    public PageInfo<InformationParam> informationlist(PageParam pageParam) {
+    public PageInfo<InformationParam> informationlist(PageParam pageParam, String name) {
         return new PageInfo<>(dao.informationList(pageParam));
     }
 

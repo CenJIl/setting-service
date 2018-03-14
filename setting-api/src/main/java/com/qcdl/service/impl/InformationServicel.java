@@ -12,7 +12,7 @@ public interface InformationServicel {
      * @param pageParam
      * @return
      */
-    PageInfo<InformationParam> informationlist(PageParam pageParam);
+    PageInfo<InformationParam> informationlist(PageParam pageParam, String name);
 
     /**
      * 编辑咨询内容

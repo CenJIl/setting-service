@@ -29,6 +29,7 @@ public class InformationApi {
 
     /**
      * @param pageParam
+     * @param name
      * @return
      */
     @POST
@@ -36,8 +37,8 @@ public class InformationApi {
     @ApiOperation(value = "查询咨询列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public PageInfo<InformationParam> informationList(@ApiParam(value = "分页参数", required = true) PageParam pageParam) {
-        return informationService.informationlist(pageParam);
+    public PageInfo<InformationParam> informationList(@ApiParam(value = "分页参数", required = true) PageParam pageParam, String name) {
+        return informationService.informationlist(pageParam,name);
     }
 
     /**
