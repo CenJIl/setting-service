@@ -1,5 +1,7 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
@@ -10,6 +12,7 @@ public class Classify implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty
     private Integer id;
 
     /**
