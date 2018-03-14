@@ -73,8 +73,5 @@ public class InformationApi {
     //  @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public void Add(@ApiParam(value = "广告内容", required = true) SettingInformation information) {
         informationService.informationAdd(information);
-
-
-
     }
 }

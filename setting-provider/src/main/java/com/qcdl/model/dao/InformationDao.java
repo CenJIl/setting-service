@@ -24,11 +24,9 @@ public class InformationDao {
             PageHelper.startPage(pageParam.getPage(), pageParam.getPageSize());
         }
         InformationParam informationParam = new InformationParam();
-
         return mapper.informationList(informationParam);
-
-
     }
+
 
     public void informationDelete(Integer id) {
         SettingInformation information = new SettingInformation();
