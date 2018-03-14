@@ -9,8 +9,7 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="cover" jdbcType="VARCHAR" property="cover"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
-        <result column="industry" jdbcType="VARCHAR" property="industry"/>
-        <result column="two_level_industry" jdbcType="VARCHAR" property="twoLevelIndustry"/>
+        <result column="industry" jdbcType="INTEGER" property="industry"/>
         <result column="author" jdbcType="VARCHAR" property="author"/>
         <result column="admin_id" jdbcType="INTEGER" property="adminId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>

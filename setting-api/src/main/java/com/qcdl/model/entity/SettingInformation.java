@@ -21,61 +21,64 @@ public class SettingInformation implements Serializable {
     /**
      * 案例名称
      */
-    @ApiModelProperty(value="案例名称",example="1")
+    @ApiModelProperty(value="案例名称",example="这是一个案例")
     private String name;
 
     /**
      * 封面图
      */
+    @ApiModelProperty(value="封面图",example="123.jpg")
     private String cover;
 
     /**
      * 文章链接
      */
+    @ApiModelProperty(value="文章链接")
     private String url;
 
     /**
      * 行业
      */
-    private String industry;
-
-    /**
-     * 二级行业
-     */
-    @Column(name = "two_level_industry")
-    private String twoLevelIndustry;
+    @ApiModelProperty(value="行业",example="1")
+    private Integer industry;
 
     /**
      * 作者
      */
+    @ApiModelProperty(value="案例名称",example="1")
     private String author;
 
     /**
      * 管理员id
      */
     @Column(name = "admin_id")
+    @ApiModelProperty(value="案例名称",example="1")
     private Integer adminId;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
+    @ApiModelProperty(value="案例名称",example="1")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
+    @ApiModelProperty(value="案例名称",example="1")
     private Date updateTime;
 
     /**
      * 版本号
      */
+    @ApiModelProperty(value="案例名称",example="1")
     private Integer version;
 
     /**
      * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
      */
+    @ApiModelProperty(value="案例名称",example="1")
     private Integer deleted;
 
     private static final long serialVersionUID = 1L;
@@ -157,7 +160,7 @@ public class SettingInformation implements Serializable {
      *
      * @return industry - 行业
      */
-    public String getIndustry() {
+    public Integer getIndustry() {
         return industry;
     }
 
@@ -166,26 +169,8 @@ public class SettingInformation implements Serializable {
      *
      * @param industry 行业
      */
-    public void setIndustry(String industry) {
+    public void setIndustry(Integer industry) {
         this.industry = industry;
-    }
-
-    /**
-     * 获取二级行业
-     *
-     * @return two_level_industry - 二级行业
-     */
-    public String getTwoLevelIndustry() {
-        return twoLevelIndustry;
-    }
-
-    /**
-     * 设置二级行业
-     *
-     * @param twoLevelIndustry 二级行业
-     */
-    public void setTwoLevelIndustry(String twoLevelIndustry) {
-        this.twoLevelIndustry = twoLevelIndustry;
     }
 
     /**
@@ -307,7 +292,6 @@ public class SettingInformation implements Serializable {
         sb.append(", cover=").append(cover);
         sb.append(", url=").append(url);
         sb.append(", industry=").append(industry);
-        sb.append(", twoLevelIndustry=").append(twoLevelIndustry);
         sb.append(", author=").append(author);
         sb.append(", adminId=").append(adminId);
         sb.append(", createTime=").append(createTime);
@@ -335,7 +319,6 @@ public class SettingInformation implements Serializable {
             && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
             && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
             && (this.getIndustry() == null ? other.getIndustry() == null : this.getIndustry().equals(other.getIndustry()))
-            && (this.getTwoLevelIndustry() == null ? other.getTwoLevelIndustry() == null : this.getTwoLevelIndustry().equals(other.getTwoLevelIndustry()))
             && (this.getAuthor() == null ? other.getAuthor() == null : this.getAuthor().equals(other.getAuthor()))
             && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
@@ -353,7 +336,6 @@ public class SettingInformation implements Serializable {
         result = prime * result + ((getCover() == null) ? 0 : getCover().hashCode());
         result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         result = prime * result + ((getIndustry() == null) ? 0 : getIndustry().hashCode());
-        result = prime * result + ((getTwoLevelIndustry() == null) ? 0 : getTwoLevelIndustry().hashCode());
         result = prime * result + ((getAuthor() == null) ? 0 : getAuthor().hashCode());
         result = prime * result + ((getAdminId() == null) ? 0 : getAdminId().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());

@@ -16,7 +16,7 @@ public class InformationParam extends SettingInformation {
     private String name;
     private String cover;
     private String url;
-    private String industry;
+    private Integer industry;
     private String author;
     private Integer adminId;
     private String twoLevelIndustry;
@@ -60,11 +60,11 @@ public class InformationParam extends SettingInformation {
         this.url = url;
     }
 
-    public String getIndustry() {
+    public Integer getIndustry() {
         return industry;
     }
 
-    public void setIndustry(String industry) {
+    public void setIndustry(Integer industry) {
         this.industry = industry;
     }
 
@@ -110,7 +110,7 @@ public class InformationParam extends SettingInformation {
 
     public InformationParam(){}
 
-    public InformationParam(Integer id, String name, String cover, String url, String industry, String author, Integer adminId, String twoLevelIndustry, Date updateTime, Date createTime) {
+    public InformationParam(Integer id, String name, String cover, String url, Integer industry, String author, Integer adminId, String twoLevelIndustry, Date updateTime, Date createTime) {
         this.id = id;
         this.name = name;
         this.cover = cover;
