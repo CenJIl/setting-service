@@ -20,24 +20,22 @@
 
     <select id="informationList" resultMap="BaseResultMap">
         SELECT
-        si.`name` AS 案例名称,
-        cover AS 封面图,
-        si.url AS 文章链接,
-        c.`name` AS 行业,
-        author AS 作者,
-        si.create_time AS 创建时间
+        si.`name`,
+        cover,
+        si.url,
+        c.`name`,
+        author,
+        si.create_time
         FROM
         setting_information AS si
         LEFT JOIN classify AS c ON si.industry = c.id
-        <trim prefix="WHERE" prefixOverrides="OR|AND">
-            <if test="vipId &gt; 0">
-            AND (a.sv_id = #{vipId} OR a.sv_id = 0 OR a.sv_id = -1)
-            </if>
-            <if test="si.`name` != null or si.`name` != ''">
-                AND si.`name` = #{name}
-            </if>
-            deleted = 0
-        </trim>
+        WHERE deleted = 0
+        <if test="name != null and name != ''">
+            AND si.`name` LIKE CONCAT('%',#{name},'%')
+        </if>
+        <if test="ClassifyId != null and ClassifyId > 0">
+            AND c.id = #{ClassifyId}
+        </if>
         ORDER BY
         si.create_time DESC
     </select>

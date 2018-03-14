@@ -22,7 +22,7 @@
     <!--BannerServiceI服务接口-->
     <dubbo:service interface="com.qcdl.service.impl.BannerServiceI" protocol="dubbo" ref="bannerService" timeout="${dubbo.timeout}"/>
     <!--InformationServiceI服务接口-->
-    <dubbo:service interface="com.qcdl.service.impl.InformationServicel" protocol="dubbo" ref="informationService" timeout="${dubbo.timeout}"/>
+    <dubbo:service interface="com.qcdl.service.impl.InformationServiceI" protocol="dubbo" ref="informationService" timeout="${dubbo.timeout}"/>
     <!--SpecialServiceI服务接口-->
     <dubbo:service interface="com.qcdl.service.impl.SpecialServiceI" protocol="dubbo" ref="specialService" timeout="${dubbo.timeout}"/>
 </beans>

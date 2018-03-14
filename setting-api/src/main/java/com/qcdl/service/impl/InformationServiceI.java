@@ -5,7 +5,7 @@ import com.qcdl.model.entity.SettingInformation;
 import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.InformationParam;
 
-public interface InformationServicel {
+public interface InformationServiceI {
     /**
      * 查询案例管理列表
      *
@@ -13,7 +13,7 @@ public interface InformationServicel {
      * @param name
      * @return
      */
-    PageInfo<InformationParam> informationlist(PageParam pageParam, String name);
+    PageInfo<SettingInformation> informationList(PageParam pageParam, String name, Integer ClassifyId);
 
     /**
      * 编辑案例内容
