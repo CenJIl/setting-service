@@ -30,6 +30,12 @@
         setting_information AS si
         LEFT JOIN classify AS c ON si.industry = c.id
         <trim prefix="WHERE" prefixOverrides="OR|AND">
+            <if test="vipId &gt; 0">
+            AND (a.sv_id = #{vipId} OR a.sv_id = 0 OR a.sv_id = -1)
+            </if>
+            <if test="si.`name` != null or si.`name` != ''">
+                AND si.`name` = #{name}
+            </if>
             deleted = 0
         </trim>
         ORDER BY

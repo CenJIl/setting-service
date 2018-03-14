@@ -10,9 +10,10 @@ public interface InformationServicel {
      * 查询案例管理列表
      *
      * @param pageParam
+     * @param name
      * @return
      */
-    PageInfo<InformationParam> informationlist(PageParam pageParam);
+    PageInfo<InformationParam> informationlist(PageParam pageParam, String name);
 
     /**
      * 编辑案例内容
