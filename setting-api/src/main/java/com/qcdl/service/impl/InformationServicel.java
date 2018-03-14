@@ -7,7 +7,7 @@ import com.qcdl.rest.param.InformationParam;
 
 public interface InformationServicel {
     /**
-     * 查询资讯管理列表
+     * 查询案例管理列表
      *
      * @param pageParam
      * @return
@@ -15,21 +15,21 @@ public interface InformationServicel {
     PageInfo<InformationParam> informationlist(PageParam pageParam);
 
     /**
-     * 编辑咨询内容
+     * 编辑案例内容
      *
      * @param information
      */
     void informationUpdate(SettingInformation information);
 
     /**
-     * 删除广告
+     * 删除案例
      *
      * @param id
      */
     void informationDelete(Integer id);
 
     /**
-     * 增加广告
+     * 增加案例
      *
      * @param information
      */

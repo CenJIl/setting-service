@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
  * Created by hxh on 2018/3/14.
  */
 @Path("/information")
-@Api("资讯管理")
+@Api("案例管理")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class InformationApi {
@@ -33,7 +33,7 @@ public class InformationApi {
      */
     @POST
     @Path("/list")
-    @ApiOperation(value = "查询咨询列表")
+    @ApiOperation(value = "查询案例列表")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public PageInfo<InformationParam> informationList(@ApiParam(value = "分页参数", required = true) PageParam pageParam) {
@@ -46,10 +46,10 @@ public class InformationApi {
      */
     @PUT
     @Path("/update")
-    @ApiOperation(value = "修改资讯")
+    @ApiOperation(value = "修改案例")
     @Authority(AuthType.不检查)
     //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void informationUpdate(@ApiParam(value = "咨询参数", required = true) SettingInformation information) {
+    public void informationUpdate(@ApiParam(value = "案例参数", required = true) SettingInformation information) {
         informationService.informationUpdate(information);
     }
 
@@ -59,16 +59,16 @@ public class InformationApi {
      */
     @DELETE
     @Path("/delete/{id}")
-    @ApiOperation(value = "删除资讯")
+    @ApiOperation(value = "删除案例")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "que")})
-    public void informationDelete(@ApiParam(value = "资讯id",required = true)@PathParam("id")Integer id){
+    public void informationDelete(@ApiParam(value = "案例id",required = true)@PathParam("id")Integer id){
         informationService.informationDelete(id);
     }
 
     @POST
     @Path("/add")
-    @ApiOperation(value = "增加资讯")
+    @ApiOperation(value = "增加案例")
     @Authority(AuthType.不检查)
     //  @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public void Add(@ApiParam(value = "广告内容", required = true) SettingInformation information) {
