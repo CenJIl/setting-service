@@ -21,7 +21,7 @@ public class InformationService implements InformationServiceI {
     private InformationDao dao;
 
     @Override
-    public PageInfo<SettingInformation> list(InformationPageParam param) {
+    public PageInfo<InformationParam> list(InformationPageParam param) {
         return new PageInfo<>(dao.list(param));
     }
 

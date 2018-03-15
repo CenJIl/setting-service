@@ -26,7 +26,7 @@ public class InformationDao {
      * @param param
      * @return
      */
-    public List<SettingInformation> list(InformationPageParam param) {
+    public List<InformationParam> list(InformationPageParam param) {
         if (param.getPageSize() != null && param.getPageSize() > 0) {
             PageHelper.startPage(param.getPage(), param.getPageSize());
         }

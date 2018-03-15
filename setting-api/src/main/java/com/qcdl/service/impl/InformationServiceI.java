@@ -12,7 +12,7 @@ public interface InformationServiceI {
      * @param param 分页,名称,行业id
      * @return
      */
-    PageInfo<SettingInformation> list(InformationPageParam param);
+    PageInfo<InformationParam> list(InformationPageParam param);
 
     /**
      * 增加案例

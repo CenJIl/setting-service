@@ -39,7 +39,7 @@ public class InformationApi {
     @Path("/list")
     @ApiOperation(value = "查询案例列表(分页)", notes = "管理员调用，权限code：information")
     @Authority(AuthType.不检查)
-    public PageInfo<SettingInformation> list(@ApiParam(value = "分页参数", required = true) InformationPageParam param) {
+    public PageInfo<InformationParam> list(@ApiParam(value = "分页参数", required = true) InformationPageParam param) {
         return informationService.list(param);
     }
 
