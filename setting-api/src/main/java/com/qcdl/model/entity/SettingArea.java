@@ -1,66 +1,78 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Table(name = "setting_area")
-public class SettingAarea implements Serializable {
+public class SettingArea implements Serializable {
     /**
      * 地区id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value = "地区id", example = "1")
     private Integer id;
 
     /**
      * 地区名称
      */
+    @ApiModelProperty(value = "地区名称", example = "武汉市")
     private String name;
 
     /**
-     * 等级名称
+     * 父级地区名称
      */
-    @Column(name = "className")
-    private String classname;
+    @Column(name = "class_name")
+    @ApiModelProperty(value = "父级地区名称", example = "湖北省")
+    private String className;
 
     /**
      * 地区父id,为0时无上级地区
      */
-    @Column(name = "classPid")
-    private Integer classpid;
+    @Column(name = "class_pid")
+    @ApiModelProperty(value = "地区父id,为0时无上级地区", example = "1")
+    private Integer classPid;
 
     /**
      * 权重值,从小到大排序,最小0,最大999
      */
+    @ApiModelProperty(value = "权重值,从小到大排序,最小0,最大999", example = "1")
     private Integer weight;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
+    @ApiModelProperty(value = "创建时间", example = "2018-3-15 22:38:56")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
+    @ApiModelProperty(value = "更新时间", example = "2018-3-15 22:39:02")
     private Date updateTime;
 
     /**
      * 版本号
      */
+    @ApiModelProperty(value = "版本号", example = "0")
     private Integer version;
 
     /**
      * 删除状态(1.启用;2.禁用;3.删除)
      */
+    @ApiModelProperty(value = "删除状态(0.启用;1.禁用;2.删除)", example = "1")
     private Integer deleted;
 
     /**
      * 管理员id
      */
     @Column(name = "admin_id")
+    @ApiModelProperty(value = "管理员id", example = "1")
     private Integer adminId;
 
     private static final long serialVersionUID = 1L;
@@ -106,17 +118,17 @@ public class SettingAarea implements Serializable {
      *
      * @return className - 等级名称
      */
-    public String getClassname() {
-        return classname;
+    public String getClassName() {
+        return className;
     }
 
     /**
      * 设置等级名称
      *
-     * @param classname 等级名称
+     * @param className 等级名称
      */
-    public void setClassname(String classname) {
-        this.classname = classname;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     /**
@@ -124,17 +136,17 @@ public class SettingAarea implements Serializable {
      *
      * @return classPid - 地区父id,为0时无上级地区
      */
-    public Integer getClasspid() {
-        return classpid;
+    public Integer getClassPid() {
+        return classPid;
     }
 
     /**
      * 设置地区父id,为0时无上级地区
      *
-     * @param classpid 地区父id,为0时无上级地区
+     * @param classPid 地区父id,为0时无上级地区
      */
-    public void setClasspid(Integer classpid) {
-        this.classpid = classpid;
+    public void setClassPid(Integer classPid) {
+        this.classPid = classPid;
     }
 
     /**
@@ -253,8 +265,8 @@ public class SettingAarea implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
-        sb.append(", classname=").append(classname);
-        sb.append(", classpid=").append(classpid);
+        sb.append(", className=").append(className);
+        sb.append(", classPid=").append(classPid);
         sb.append(", weight=").append(weight);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
@@ -276,17 +288,17 @@ public class SettingAarea implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        SettingAarea other = (SettingAarea) that;
+        SettingArea other = (SettingArea) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getClassname() == null ? other.getClassname() == null : this.getClassname().equals(other.getClassname()))
-            && (this.getClasspid() == null ? other.getClasspid() == null : this.getClasspid().equals(other.getClasspid()))
-            && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
-            && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getClassName() == null ? other.getClassName() == null : this.getClassName().equals(other.getClassName()))
+                && (this.getClassPid() == null ? other.getClassPid() == null : this.getClassPid().equals(other.getClassPid()))
+                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
+                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
+                && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()));
     }
 
     @Override
@@ -295,8 +307,8 @@ public class SettingAarea implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getClassname() == null) ? 0 : getClassname().hashCode());
-        result = prime * result + ((getClasspid() == null) ? 0 : getClasspid().hashCode());
+        result = prime * result + ((getClassName() == null) ? 0 : getClassName().hashCode());
+        result = prime * result + ((getClassPid() == null) ? 0 : getClassPid().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());

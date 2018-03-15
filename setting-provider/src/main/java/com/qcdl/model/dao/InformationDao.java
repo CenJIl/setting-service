@@ -20,9 +20,6 @@ public class InformationDao {
     @Resource
     private SettingInformationMapper mapper;
 
-    @Resource
-    private IndustryMapper classifyMapper;
-
     /**
      * 查询案例列表(分页)
      *
