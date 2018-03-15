@@ -2,77 +2,38 @@ package com.qcdl.rest.param;
 
 import com.qcdl.model.entity.SettingSpecial;
 import io.swagger.annotations.ApiModel;
-
-import javax.persistence.Column;
-import java.util.Date;
+import io.swagger.annotations.ApiModelProperty;
 
 
-@ApiModel
+@ApiModel("专题编辑（添加）参数")
 
 public class SpecialParam extends SettingSpecial {
-
-    /**
-     * 专题id
-     */
+    @ApiModelProperty(value = "专题id，编辑的时候必须填写", example = "1")
     private Integer id;
-
-    /**
-     * 广告名称
-     */
+    @ApiModelProperty(value = "专题名称", example = "这是一个专题")
     private String name;
-
-    /**
-     * 广告图片
-     */
+    @ApiModelProperty(value = "专题封面", example = "/baidu.jpg")
     private String cover;
-
-    /**
-     * 广告链接
-     */
+    @ApiModelProperty(value = "专题链接", example = "http:/www.baidu.com")
     private String url;
-
-    /**
-     * 广告描述
-     */
+    @ApiModelProperty(value = "专题描述", example = "这个专题很好")
     private String describe;
-    /**
-     * 一级菜单
-     */
+    @ApiModelProperty(value = "专题一级菜单", example = "联系我们/资源介绍/广告模式")
     private String menu;
-    /**
-     * 二级菜单
-     */
+    @ApiModelProperty(value = "专题二级菜单", example = "（“联系我们”链接-->）邮箱，电话")
     private String twoLevelMenu;
-    /**
-     * 权重值，数值越小越靠前，最大999，最小0
-     */
+    @ApiModelProperty(value = "权重值，数值越小越靠前，最大999，最小0", example = "1")
     private Integer weight;
-    /**
-     * 管理员id
-     */
+    @ApiModelProperty(hidden = true)
     private Integer adminId;
-    /**
-     * 创建时间
-     */
-    @Column(name = "create_time")
-    private Date createTime;
-    /**
-     * 更新时间
-     */
-    @Column(name = "update_time")
-    private Date updateTime;
 
-    /**
-     * 获取专题id
-     *
-     * @return id - 专题id
-     */
+
     public Integer getId() {
         return id;
     }
 
     /**
-     *设置专题id
+     * 设置专题id
      *
      * @param id 专题id
      */
@@ -162,7 +123,7 @@ public class SpecialParam extends SettingSpecial {
     }
 
     /**
-     * 设置专题菜单
+     * 设置专题一级菜单
      *
      * @param menu 一级菜单
      */
@@ -224,39 +185,4 @@ public class SpecialParam extends SettingSpecial {
         this.adminId = adminId;
     }
 
-    /**
-     * 获得创建时间
-     *
-     * @return create-time 创建时间
-     */
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    /**
-     *设置创建时间
-     *
-     * @param createTime 创建时间
-     */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * 获得更新时间
-     *
-     * @return update_time 更新时间
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-     * 设置更新时间
-     *
-     * @param updateTime 更新时间
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }

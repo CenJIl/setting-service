@@ -82,4 +82,5 @@ public class BannerParam implements Serializable {
     public void setWeight(Integer weight) {
         this.weight = weight;
     }
+
 }
