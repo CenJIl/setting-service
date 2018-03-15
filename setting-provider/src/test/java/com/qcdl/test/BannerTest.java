@@ -1,6 +1,5 @@
 package com.qcdl.test;
 
-import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
 import org.junit.Test;
 

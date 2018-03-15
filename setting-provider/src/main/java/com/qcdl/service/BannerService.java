@@ -1,16 +1,14 @@
 package com.qcdl.service;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.dao.BannerDao;
 import com.qcdl.model.entity.SettingBanner;
-import com.qcdl.model.param.PageParam;
+import com.qcdl.rest.param.BannerPageParam;
 import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
+import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.text.ParseException;
 
 /**
  * Created by yuanhua 2018/3/12.
@@ -19,28 +17,40 @@ import java.text.ParseException;
  */
 @Service("bannerService")
 public class BannerService implements BannerServiceI {
-
     @Autowired
     private BannerDao dao;
 
     @Override
-    public PageInfo<SettingBanner> bannerList(BannerParam bannerParam) {
-        return new PageInfo<>(dao.bannerList(bannerParam));
+    public PageInfo<SettingBanner> list(BannerPageParam param) {
+        return new PageInfo<>(dao.list(param));
     }
 
     @Override
-    public void bannerUpdate(SettingBanner banner) {
-        dao.bannerUpdate(banner);
+    public void update(BannerParam param) {
+        SettingBanner banner = dao.getById(param.getId());
+        Assert.notNull(banner, "广告不存在！");
+        banner.setName(param.getName());
+        banner.setWeight(param.getWeight());
+        banner.setUrl(param.getUrl());
+        banner.setPicture(param.getPicture());
+        banner.setPosition(param.getPosition());
+        banner.setVersion(banner.getVersion() + 1);
+        dao.update(banner);
     }
 
     @Override
-    public void bannerDelete(Integer id) {
-        dao.bannerDelete(id);
+    public void delete(Integer id) {
+        dao.delete(id);
     }
 
     @Override
-    public void bannerAdd(SettingBanner banner) {
-        dao.bannerAdd(banner);
+    public void add(BannerParam param) {
+        dao.add(param);
+    }
+
+    @Override
+    public SettingBanner get(Integer id) {
+        return dao.getById(id);
     }
 }
 

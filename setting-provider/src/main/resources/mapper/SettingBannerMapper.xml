@@ -17,18 +17,4 @@
         <result column="version" jdbcType="INTEGER" property="version"/>
         <result column="deleted" jdbcType="INTEGER" property="deleted"/>
     </resultMap>
-
-    <resultMap id="bannerParamMap" type="com.qcdl.rest.param.BannerParam">
-        <result column="position" jdbcType="INTEGER" property="position"/>
-    </resultMap>
-
-    <select id="bannerList" resultMap="bannerParamMap">
-        SELECT `name`,picture,url,position,weight
-        FROM setting_banner
-        WHERE deleted = 0
-        <if test="position &gt; 0">
-            AND position = #{position,jdbcType=INTEGER}
-        </if>
-        ORDER BY weight ASC
-    </select>
 </mapper>

@@ -13,6 +13,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <!--account-api-->
+        <dependency>
+            <groupId>com.qcdl.infinite-alliance</groupId>
+            <artifactId>account-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
         <!-- dubbox-api -->
         <dependency>
             <groupId>com.wzd</groupId>

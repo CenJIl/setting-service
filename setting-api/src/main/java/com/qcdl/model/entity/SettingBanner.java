@@ -7,13 +7,17 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author 魏自东
+ * @date 2018/3/15 9:10
+ */
 @Table(name = "setting_banner")
-@ApiModel("广告管理")
+@ApiModel("广告")
 public class SettingBanner implements Serializable {
     /**
      * 广告名称
      */
-    @ApiModelProperty(value="广告名称",example="这是一条广告")
+    @ApiModelProperty(value = "广告名称", example = "这是一条广告")
     private String name;
 
     /**
@@ -21,64 +25,64 @@ public class SettingBanner implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty(value="广告id",example="1")
+    @ApiModelProperty(value = "广告id", example = "1")
     private Integer id;
 
     /**
      * 广告图片
      */
-    @ApiModelProperty(value="广告图片",example="123.jpg")
+    @ApiModelProperty(value = "广告图片", example = "/baidu.jpg")
     private String picture;
 
     /**
      * 广告链接
      */
-    @ApiModelProperty(value="广告链接",example="1")
+    @ApiModelProperty(value = "广告链接", example = "http://www.baidu.com")
     private String url;
 
     /**
      * 广告位置()
      */
-    @ApiModelProperty(value="广告位置",example="1")
+    @ApiModelProperty(value = "广告位置", example = "1")
     private Integer position;
 
     /**
      * 权重值,数值越小越靠前，最大999，最小0
      */
-    @ApiModelProperty(value="权重值,数值越小越靠前，最大999，最小0",example="1")
+    @ApiModelProperty(value = "权重值,数值越小越靠前，最大999，最小0", example = "1")
     private Integer weight;
 
     /**
      * 管理员id
      */
     @Column(name = "admin_id")
-    @ApiModelProperty(value="管理员id",example="1")
+    @ApiModelProperty(value = "管理员id", example = "1")
     private Integer adminId;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
-    @ApiModelProperty(value="创建时间",example="2018-3-14 11:42:53")
+    @ApiModelProperty(value = "创建时间", example = "2018-3-14 11:42:53")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
-    @ApiModelProperty(value="更新时间",example="2018-3-14 11:43:07")
+    @ApiModelProperty(value = "更新时间", example = "2018-3-14 11:43:07")
     private Date updateTime;
 
     /**
      * 版本号
      */
-    @ApiModelProperty(value="版本号",example="1", hidden = true)
+    @ApiModelProperty(value = "版本号", example = "1", hidden = true)
     private Integer version;
 
     /**
      * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
      */
-    @ApiModelProperty(value="删除状态(默认启用):0.启用;1.禁用;2.已删除;",example="1", hidden = true)
+    @ApiModelProperty(value = "删除状态(默认启用):0.启用;1.禁用;2.已删除;", example = "1")
     private Integer deleted;
 
     private static final long serialVersionUID = 1L;
@@ -315,16 +319,16 @@ public class SettingBanner implements Serializable {
         }
         SettingBanner other = (SettingBanner) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getPicture() == null ? other.getPicture() == null : this.getPicture().equals(other.getPicture()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-            && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
-            && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
-            && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getPicture() == null ? other.getPicture() == null : this.getPicture().equals(other.getPicture()))
+                && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
+                && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
+                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
+                && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
+                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()));
     }
 
     @Override

@@ -3,9 +3,6 @@ package com.qcdl.rest.param;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -13,25 +10,62 @@ import java.io.Serializable;
  *
  * @author Administrator
  */
-@ApiModel
+@ApiModel("广告编辑（添加）参数")
 public class BannerParam implements Serializable {
-
-    /**
-     * 广告位置()
-     */
-    @ApiModelProperty(value = "分类位置", example = "1")
+    @ApiModelProperty(value = "广告id,编辑的时候必须填写", example = "1")
+    private Integer id;
+    @ApiModelProperty(value = "广告名称", example = "这是一条广告")
+    private String name;
+    @ApiModelProperty(value = "广告图片", example = "/baidu.jpg")
+    private String picture;
+    @ApiModelProperty(value = "广告链接", example = "http://www.baidu.com")
+    private String url;
+    @ApiModelProperty(value = "广告位置", example = "1")
     private Integer position;
+    @ApiModelProperty(value = "权重值,数值越小越靠前，最大999，最小0", example = "1")
+    private Integer weight;
+    @ApiModelProperty(hidden = true)
+    private Integer adminId;
 
-    /**
-     * 当前页，默认值是1
-     */
-    @ApiModelProperty(value = "当前页", required = true, example = "1")
-    private Integer page = 1;
-    /**
-     * 每页条数,默认值是10
-     */
-    @ApiModelProperty(value = "每页条数", required = false, example = "10")
-    private Integer pageSize = 10;
+    public Integer getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Integer adminId) {
+        this.adminId = adminId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public Integer getPosition() {
         return position;
@@ -41,19 +75,11 @@ public class BannerParam implements Serializable {
         this.position = position;
     }
 
-    public Integer getPage() {
-        return page;
+    public Integer getWeight() {
+        return weight;
     }
 
-    public void setPage(Integer page) {
-        this.page = page;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 }
