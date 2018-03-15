@@ -281,4 +281,5 @@ public class industry implements Serializable {
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         return result;
     }
+
 }
