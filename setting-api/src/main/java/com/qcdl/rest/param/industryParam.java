@@ -11,7 +11,7 @@ import java.io.Serializable;
 @ApiModel("行业添加与修改参数")
 public class industryParam implements Serializable {
 
-    @ApiModelProperty(value = "行业id", example = "1")
+    @ApiModelProperty(value = "行业id,编辑时必须填写", example = "1")
     private Integer id;
 
     @ApiModelProperty(value = "行业名称", example = "建材")

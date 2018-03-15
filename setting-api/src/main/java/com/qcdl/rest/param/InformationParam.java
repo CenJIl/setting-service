@@ -14,7 +14,7 @@ public class InformationParam implements Serializable {
     /**
      * id
      */
-    @ApiModelProperty(value = "案例id", example = "1")
+    @ApiModelProperty(value = "案例id,编辑时必须填写", example = "1")
     private Integer id;
 
     /**

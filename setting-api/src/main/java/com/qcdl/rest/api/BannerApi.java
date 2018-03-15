@@ -30,6 +30,12 @@ public class BannerApi {
     @Autowired
     private BannerServiceI bannerService;
 
+    /**
+     * 获取广告列表
+     *
+     * @param param 分页参数
+     * @return 广告列表
+     */
     @POST
     @Path("/list")
     @ApiOperation(value = "获取广告列表")
@@ -38,6 +44,11 @@ public class BannerApi {
         return bannerService.list(param);
     }
 
+    /**
+     * 编辑广告信息
+     *
+     * @param banner 广告参数
+     */
     @PUT
     @Path("/update")
     @ApiOperation(value = "编辑广告", notes = "管理员调用，权限code：banner")
@@ -47,6 +58,11 @@ public class BannerApi {
         bannerService.update(banner);
     }
 
+    /**
+     * 根据id删除广告
+     *
+     * @param id 广告id
+     */
     @DELETE
     @Path("/delete/{id}")
     @ApiOperation(value = "删除广告", notes = "管理员调用，权限code：banner")
@@ -56,6 +72,12 @@ public class BannerApi {
         bannerService.delete(id);
     }
 
+    /**
+     * 增加一条广告
+     *
+     * @param param   广告参数
+     * @param request 缓存
+     */
     @POST
     @Path("/add")
     @ApiOperation(value = "增加广告", notes = "管理员调用，权限code：banner")
@@ -68,6 +90,12 @@ public class BannerApi {
         bannerService.add(param);
     }
 
+    /**
+     * 获取广告详情
+     *
+     * @param id 广告id
+     * @return 广告详情
+     */
     @GET
     @Path("/get/{id}")
     @ApiOperation(value = "获取广告详情", notes = "管理员调用，权限code：banner")

@@ -1,6 +1,7 @@
 package com.qcdl.rest.param;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
@@ -11,31 +12,37 @@ public class SpecialParam implements Serializable {
     /**
      * 专题id
      */
+    @ApiModelProperty(value = "专题id,编辑时必须填写", example = "1")
     private Integer id;
 
     /**
      * 广告名称
      */
+    @ApiModelProperty(value = "广告名称", example = "这是一条广告")
     private String name;
 
     /**
      * 广告图片
      */
+    @ApiModelProperty(value = "广告图片", example = "/123.jpg")
     private String cover;
 
     /**
      * 广告链接
      */
+    @ApiModelProperty(value = "广告链接", example = "http://www.baidu.com")
     private String url;
 
     /**
      * 广告描述
      */
+    @ApiModelProperty(value = "广告描述", example = "描述")
     private String described;
 
     /**
      * 权重值，数值越小越靠前，最大999，最小0
      */
+    @ApiModelProperty(value = "权重值", example = "1")
     private Integer weight;
 
     /**

@@ -29,7 +29,7 @@ public class SpecialApi {
      * 分页查询专题列表
      *
      * @param param 分页参数
-     * @return
+     * @return 专题列表(分页)
      */
     @POST
     @Path("/list")
@@ -69,7 +69,9 @@ public class SpecialApi {
     }
 
     /**
-     * @param param
+     * 增加专题
+     *
+     * @param param 专题参数
      */
     @POST
     @Path("/add")

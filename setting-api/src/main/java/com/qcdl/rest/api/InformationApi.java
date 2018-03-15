@@ -33,7 +33,7 @@ public class InformationApi {
      * 查询案例列表(分页)
      *
      * @param param 分页参数
-     * @return
+     * @return 案例列表(分页)
      */
     @POST
     @Path("/list")
@@ -43,6 +43,12 @@ public class InformationApi {
         return informationService.list(param);
     }
 
+    /**
+     * 查询案例详情
+     *
+     * @param id 案例id
+     * @return 案例详情
+     */
     @GET
     @Path("/getId/{id}")
     @ApiOperation(value = "查询案例详情")
@@ -54,7 +60,7 @@ public class InformationApi {
     /**
      * 添加案例
      *
-     * @param param
+     * @param param 案例参数
      */
     @POST
     @Path("/add")
@@ -78,7 +84,9 @@ public class InformationApi {
     }
 
     /**
-     * @param id
+     * 删除一个案例
+     *
+     * @param id 案例id
      */
     @DELETE
     @Path("/delete/{id}")
