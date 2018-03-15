@@ -1,13 +1,10 @@
 package com.qcdl.model.entity;
 
-import io.swagger.annotations.ApiModel;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Table(name = "setting_special")
-@ApiModel("专题管理")
 public class SettingSpecial implements Serializable {
     /**
      * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
@@ -30,17 +27,6 @@ public class SettingSpecial implements Serializable {
      * 专题链接
      */
     private String url;
-
-    /**
-     * 一级菜单
-     */
-    private String menu;
-
-    /**
-     * 二级菜单
-     */
-    @Column(name = "two_level_menu")
-    private String twoLevelMenu;
 
     /**
      * 权重值,数值越小越靠前,最小0，最大999
@@ -78,7 +64,7 @@ public class SettingSpecial implements Serializable {
     /**
      * 专题描述
      */
-    private String describe;
+    private String described;
 
     private static final long serialVersionUID = 1L;
 
@@ -152,42 +138,6 @@ public class SettingSpecial implements Serializable {
      */
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    /**
-     * 获取一级菜单
-     *
-     * @return menu - 一级菜单
-     */
-    public String getMenu() {
-        return menu;
-    }
-
-    /**
-     * 设置一级菜单
-     *
-     * @param menu 一级菜单
-     */
-    public void setMenu(String menu) {
-        this.menu = menu;
-    }
-
-    /**
-     * 获取二级菜单
-     *
-     * @return two_level_menu - 二级菜单
-     */
-    public String getTwoLevelMenu() {
-        return twoLevelMenu;
-    }
-
-    /**
-     * 设置二级菜单
-     *
-     * @param twoLevelMenu 二级菜单
-     */
-    public void setTwoLevelMenu(String twoLevelMenu) {
-        this.twoLevelMenu = twoLevelMenu;
     }
 
     /**
@@ -301,19 +251,19 @@ public class SettingSpecial implements Serializable {
     /**
      * 获取专题描述
      *
-     * @return describe - 专题描述
+     * @return described - 专题描述
      */
-    public String getDescribe() {
-        return describe;
+    public String getDescribed() {
+        return described;
     }
 
     /**
      * 设置专题描述
      *
-     * @param describe 专题描述
+     * @param described 专题描述
      */
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescribed(String described) {
+        this.described = described;
     }
 
     @Override
@@ -326,15 +276,13 @@ public class SettingSpecial implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", cover=").append(cover);
         sb.append(", url=").append(url);
-        sb.append(", menu=").append(menu);
-        sb.append(", twoLevelMenu=").append(twoLevelMenu);
         sb.append(", weight=").append(weight);
         sb.append(", adminId=").append(adminId);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", version=").append(version);
         sb.append(", deleted=").append(deleted);
-        sb.append(", describe=").append(describe);
+        sb.append(", described=").append(described);
         sb.append("]");
         return sb.toString();
     }
@@ -352,18 +300,16 @@ public class SettingSpecial implements Serializable {
         }
         SettingSpecial other = (SettingSpecial) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
-                && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-                && (this.getMenu() == null ? other.getMenu() == null : this.getMenu().equals(other.getMenu()))
-                && (this.getTwoLevelMenu() == null ? other.getTwoLevelMenu() == null : this.getTwoLevelMenu().equals(other.getTwoLevelMenu()))
-                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
-                && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
-                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
-                && (this.getDescribe() == null ? other.getDescribe() == null : this.getDescribe().equals(other.getDescribe()));
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
+            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
+            && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
+            && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
+            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
+            && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
+            && (this.getDescribed() == null ? other.getDescribed() == null : this.getDescribed().equals(other.getDescribed()));
     }
 
     @Override
@@ -374,15 +320,13 @@ public class SettingSpecial implements Serializable {
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getCover() == null) ? 0 : getCover().hashCode());
         result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
-        result = prime * result + ((getMenu() == null) ? 0 : getMenu().hashCode());
-        result = prime * result + ((getTwoLevelMenu() == null) ? 0 : getTwoLevelMenu().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getAdminId() == null) ? 0 : getAdminId().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         result = prime * result + ((getDeleted() == null) ? 0 : getDeleted().hashCode());
-        result = prime * result + ((getDescribe() == null) ? 0 : getDescribe().hashCode());
+        result = prime * result + ((getDescribed() == null) ? 0 : getDescribed().hashCode());
         return result;
     }
 }

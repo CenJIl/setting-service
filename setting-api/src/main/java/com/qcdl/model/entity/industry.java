@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Classify implements Serializable {
+public class industry implements Serializable {
     /**
      * 分类id
      */
@@ -49,14 +49,19 @@ public class Classify implements Serializable {
     private Date updateTime;
 
     /**
-     * 排序,从小到大,0最小,999最大
+     * 权重值,从小到大,0最小,999最大
      */
-    private Integer rank;
+    private Integer weight;
 
     /**
      * 版本号
      */
     private Integer version;
+
+    /**
+     * 删除状态(0.启用;1.禁用;2.删除)
+     */
+    private Integer deleted;
 
     private static final long serialVersionUID = 1L;
 
@@ -169,21 +174,21 @@ public class Classify implements Serializable {
     }
 
     /**
-     * 获取排序,从小到大,0最小,999最大
+     * 获取权重值,从小到大,0最小,999最大
      *
-     * @return rank - 排序,从小到大,0最小,999最大
+     * @return weight - 权重值,从小到大,0最小,999最大
      */
-    public Integer getRank() {
-        return rank;
+    public Integer getWeight() {
+        return weight;
     }
 
     /**
-     * 设置排序,从小到大,0最小,999最大
+     * 设置权重值,从小到大,0最小,999最大
      *
-     * @param rank 排序,从小到大,0最小,999最大
+     * @param weight 权重值,从小到大,0最小,999最大
      */
-    public void setRank(Integer rank) {
-        this.rank = rank;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
     /**
@@ -204,6 +209,24 @@ public class Classify implements Serializable {
         this.version = version;
     }
 
+    /**
+     * 设置删除状态(0.启用;1.禁用;2.删除)
+     *
+     * @return deleted - 版本号
+     */
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    /**
+     * 设置删除状态(0.启用;1.禁用;2.删除)
+     *
+     * @param deleted 版本号
+     */
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -216,7 +239,7 @@ public class Classify implements Serializable {
         sb.append(", url=").append(url);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", rank=").append(rank);
+        sb.append(", weight=").append(weight);
         sb.append(", version=").append(version);
         sb.append("]");
         return sb.toString();
@@ -233,15 +256,15 @@ public class Classify implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Classify other = (Classify) that;
+        industry other = (industry) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getRank() == null ? other.getRank() == null : this.getRank().equals(other.getRank()))
-            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
+                && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
+                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()));
     }
 
     @Override
@@ -254,7 +277,7 @@ public class Classify implements Serializable {
         result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getRank() == null) ? 0 : getRank().hashCode());
+        result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         return result;
     }

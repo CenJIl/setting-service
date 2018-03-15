@@ -9,14 +9,12 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="cover" jdbcType="VARCHAR" property="cover" />
     <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="menu" jdbcType="VARCHAR" property="menu" />
-    <result column="two_level_menu" jdbcType="VARCHAR" property="twoLevelMenu" />
     <result column="weight" jdbcType="INTEGER" property="weight" />
     <result column="admin_id" jdbcType="INTEGER" property="adminId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="version" jdbcType="INTEGER" property="version" />
     <result column="deleted" jdbcType="INTEGER" property="deleted" />
-    <result column="describe" jdbcType="LONGVARCHAR" property="describe" />
+    <result column="described" jdbcType="LONGVARCHAR" property="described" />
   </resultMap>
 </mapper>

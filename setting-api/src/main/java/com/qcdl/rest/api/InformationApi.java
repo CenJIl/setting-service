@@ -2,9 +2,12 @@ package com.qcdl.rest.api;
 
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingInformation;
-import com.qcdl.model.param.PageParam;
+import com.qcdl.rest.param.InformationPageParam;
+import com.qcdl.rest.param.InformationParam;
 import com.qcdl.service.impl.InformationServiceI;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.restful.api.filter.authority.AuthType;
 import org.restful.api.filter.authority.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Created by hxh on 2018/3/14.
+ * @author yuanhua
+ * @date 2018/3/14
  */
 @Path("/information")
 @Api("案例管理")
@@ -26,29 +30,51 @@ public class InformationApi {
     private InformationServiceI informationService;
 
     /**
-     * @param pageParam
-     * @param name
+     * 查询案例列表(分页)
+     *
+     * @param param 分页参数
      * @return
      */
     @POST
-    @Path("/list/{name}{id}")
-    @ApiOperation(value = "查询案例列表")
+    @Path("/list")
+    @ApiOperation(value = "查询案例列表(分页)")
     @Authority(AuthType.不检查)
-    public PageInfo<SettingInformation> informationList(@ApiParam(value = "分页参数", required = true) PageParam pageParam,
-                                                        @ApiParam(value = "案例名称") @PathParam("name") String name,
-                                                        @ApiParam(value = "分类id", required = true) @PathParam("id") Integer ClassifyId) {
-        return informationService.informationList(pageParam, name, ClassifyId);
+    public PageInfo<SettingInformation> list(@ApiParam(value = "分页参数", required = true) InformationPageParam param) {
+        return informationService.list(param);
+    }
+
+    @GET
+    @Path("/getId/{id}")
+    @ApiOperation(value = "查询案例详情")
+    @Authority(AuthType.不检查)
+    public SettingInformation list(@ApiParam(value = "分页参数", required = true) @PathParam("id") Integer id) {
+        return informationService.getId(id);
     }
 
     /**
-     * @param information
+     * 添加案例
+     *
+     * @param param
+     */
+    @POST
+    @Path("/add")
+    @ApiOperation(value = "添加案例", notes = "权限:Information")
+    @Authority(AuthType.不检查)
+    public void add(@ApiParam(value = "广告内容", required = true) InformationParam param) {
+        informationService.add(param);
+    }
+
+    /**
+     * 修改案例信息
+     *
+     * @param param 案例参数
      */
     @PUT
     @Path("/update")
-    @ApiOperation(value = "修改案例")
+    @ApiOperation(value = "修改案例", notes = "权限:Information")
     @Authority(AuthType.不检查)
-    public void informationUpdate(@ApiParam(value = "案例参数", required = true) SettingInformation information) {
-        informationService.informationUpdate(information);
+    public void update(@ApiParam(value = "案例参数", required = true) InformationParam param) {
+        informationService.update(param);
     }
 
     /**
@@ -56,17 +82,11 @@ public class InformationApi {
      */
     @DELETE
     @Path("/delete/{id}")
-    @ApiOperation(value = "删除案例")
+    @ApiOperation(value = "删除案例", notes = "权限:Information")
     @Authority(AuthType.不检查)
-    public void informationDelete(@ApiParam(value = "案例id", required = true) @PathParam("id") Integer id) {
-        informationService.informationDelete(id);
+    public void delete(@ApiParam(value = "案例id", required = true) @PathParam("id") Integer id) {
+        informationService.delete(id);
     }
 
-    @POST
-    @Path("/add")
-    @ApiOperation(value = "增加案例")
-    @Authority(AuthType.不检查)
-    public void Add(@ApiParam(value = "广告内容", required = true) SettingInformation information) {
-        informationService.informationAdd(information);
-    }
+
 }

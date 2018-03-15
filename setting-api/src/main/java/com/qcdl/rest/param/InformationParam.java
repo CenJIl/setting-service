@@ -1,21 +1,71 @@
 package com.qcdl.rest.param;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
-@ApiModel("InformationParam")
+/**
+ * Created by hxh on 2018/3/15.
+ */
+@ApiModel("案例添加与修改参数")
 public class InformationParam implements Serializable {
 
+    /**
+     * id
+     */
+    @ApiModelProperty(value = "案例id", example = "1")
+    private Integer id;
+
+    /**
+     * 案例名称
+     */
+    @ApiModelProperty(value = "案例名称", example = "这是一个案例")
     private String name;
 
-    private String picture;
+    /**
+     * 封面图
+     */
+    @ApiModelProperty(value = "封面图", example = "/123.jpg")
+    private String cover;
 
+    /**
+     * 文章链接
+     */
+    @ApiModelProperty(value = "文章链接", example = "http://www.baidu.com")
     private String url;
 
-    private String position;
+    /**
+     * 行业id
+     */
+    @ApiModelProperty(value = "行业id", example = "1")
+    private Integer industryId;
 
-    private String weight;
+    /**
+     * 行业名称
+     */
+    @ApiModelProperty(value = "行业名称", example = "1")
+    private String industryName;
+
+    /**
+     * 作者
+     */
+    @ApiModelProperty(value = "作者", example = "作者")
+    private String author;
+
+    /**
+     * 管理员id
+     */
+    @ApiModelProperty(value = "管理员id", example = "1")
+    private Integer adminId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -25,12 +75,12 @@ public class InformationParam implements Serializable {
         this.name = name;
     }
 
-    public String getPicture() {
-        return picture;
+    public String getCover() {
+        return cover;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
     public String getUrl() {
@@ -41,19 +91,35 @@ public class InformationParam implements Serializable {
         this.url = url;
     }
 
-    public String getPosition() {
-        return position;
+    public Integer getIndustryId() {
+        return industryId;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setIndustryId(Integer industryId) {
+        this.industryId = industryId;
     }
 
-    public String getWeight() {
-        return weight;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setWeight(String weight) {
-        this.weight = weight;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Integer getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Integer adminId) {
+        this.adminId = adminId;
+    }
+
+    public String getIndustryName() {
+        return industryName;
+    }
+
+    public void setIndustryName(String industryName) {
+        this.industryName = industryName;
     }
 }

@@ -17,22 +17,4 @@
         <result column="version" jdbcType="INTEGER" property="version"/>
         <result column="deleted" jdbcType="INTEGER" property="deleted"/>
     </resultMap>
-    <select id="informationList" resultMap="BaseResultMap">
-        SELECT
-        si.`name` AS 案例名称,
-        cover AS 封面图,
-        si.url AS 文章链接,
-        c.`name` AS 行业,
-        author AS 作者,
-        si.create_time AS 创建时间
-        FROM
-        setting_information AS si
-        LEFT JOIN classify AS c ON si.industry = c.id
-        WHERE deleted = 0
-        <if test="_parameter != null or _parameter != ''">
-            AND si.`name` = #{name}
-        </if>
-        ORDER BY
-        si.create_time DESC
-    </select>
 </mapper>

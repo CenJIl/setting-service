@@ -1,15 +1,12 @@
 package com.qcdl.rest.param;
 
-import com.qcdl.model.entity.SettingSpecial;
 import io.swagger.annotations.ApiModel;
 
-import javax.persistence.Column;
-import java.util.Date;
+import java.io.Serializable;
 
 
-@ApiModel
-
-public class SpecialParam extends SettingSpecial {
+@ApiModel("专题添加与修改参数")
+public class SpecialParam implements Serializable {
 
     /**
      * 专题id
@@ -34,33 +31,12 @@ public class SpecialParam extends SettingSpecial {
     /**
      * 广告描述
      */
-    private String describe;
-    /**
-     * 一级菜单
-     */
-    private String menu;
-    /**
-     * 二级菜单
-     */
-    private String twoLevelMenu;
+    private String described;
+
     /**
      * 权重值，数值越小越靠前，最大999，最小0
      */
     private Integer weight;
-    /**
-     * 管理员id
-     */
-    private Integer adminId;
-    /**
-     * 创建时间
-     */
-    @Column(name = "create_time")
-    private Date createTime;
-    /**
-     * 更新时间
-     */
-    @Column(name = "update_time")
-    private Date updateTime;
 
     /**
      * 获取专题id
@@ -72,7 +48,7 @@ public class SpecialParam extends SettingSpecial {
     }
 
     /**
-     *设置专题id
+     * 设置专题id
      *
      * @param id 专题id
      */
@@ -137,55 +113,19 @@ public class SpecialParam extends SettingSpecial {
     /**
      * 获得专题描述
      *
-     * @return describe 专题描述
+     * @return described 专题描述
      */
-    public String getDescribe() {
-        return describe;
+    public String getDescribed() {
+        return described;
     }
 
     /**
      * 设置专题描述
      *
-     * @param describe 专题描述
+     * @param described 专题描述
      */
-    public void setDescribe(String describe) {
-        this.describe = describe;
-    }
-
-    /**
-     * 获得专题菜单
-     *
-     * @return menu 专题菜单
-     */
-    public String getMenu() {
-        return menu;
-    }
-
-    /**
-     * 设置专题菜单
-     *
-     * @param menu 一级菜单
-     */
-    public void setMenu(String menu) {
-        this.menu = menu;
-    }
-
-    /**
-     * 获得专题二级菜单
-     *
-     * @return twoLevalMenu 二级菜单
-     */
-    public String getTwoLevelMenu() {
-        return twoLevelMenu;
-    }
-
-    /**
-     * 设置专题二级菜单
-     *
-     * @param twoLevelMenu 二级菜单
-     */
-    public void setTwoLevelMenu(String twoLevelMenu) {
-        this.twoLevelMenu = twoLevelMenu;
+    public void setDescribed(String described) {
+        this.described = described;
     }
 
     /**
@@ -204,59 +144,5 @@ public class SpecialParam extends SettingSpecial {
      */
     public void setWeight(Integer weight) {
         this.weight = weight;
-    }
-
-    /**
-     * 获得管理员id
-     *
-     * @return id 管理员id
-     */
-    public Integer getAdminId() {
-        return adminId;
-    }
-
-    /**
-     * 设置管理员id
-     *
-     * @param adminId 管理员id
-     */
-    public void setAdminId(Integer adminId) {
-        this.adminId = adminId;
-    }
-
-    /**
-     * 获得创建时间
-     *
-     * @return create-time 创建时间
-     */
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    /**
-     *设置创建时间
-     *
-     * @param createTime 创建时间
-     */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * 获得更新时间
-     *
-     * @return update_time 更新时间
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-     * 设置更新时间
-     *
-     * @param updateTime 更新时间
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 }

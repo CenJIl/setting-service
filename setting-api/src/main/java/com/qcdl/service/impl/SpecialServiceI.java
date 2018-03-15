@@ -2,38 +2,36 @@ package com.qcdl.service.impl;
 
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingSpecial;
-import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.SpecialParam;
+import com.qcdl.rest.param.specialPageParam;
 
 public interface SpecialServiceI {
 
     /**
      * 查询专题列表
      *
-     * @param pageParm
+     * @param param
      * @return
      */
-    PageInfo<SettingSpecial> specialList(PageParam pageParm);
+    PageInfo<SettingSpecial> list(specialPageParam param);
 
     /**
      * 编辑专题内容
      *
-     * @param special
+     * @param param
      */
-    void specialUpdate(SettingSpecial special);
+    void update(SpecialParam param);
 
     /**
-     *
      * @param id
      */
-    void specialDelete(Integer id);
+    void delete(Integer id);
 
     /**
      * 增加专题
      *
-     * @param special
+     * @param param
      */
-    void specialAdd(SettingSpecial special);
-
+    void add(SpecialParam param);
 
 }

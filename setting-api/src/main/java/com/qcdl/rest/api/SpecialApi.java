@@ -3,8 +3,8 @@ package com.qcdl.rest.api;
 
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingSpecial;
-import com.qcdl.model.param.PageParam;
 import com.qcdl.rest.param.SpecialParam;
+import com.qcdl.rest.param.specialPageParam;
 import com.qcdl.service.impl.SpecialServiceI;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,30 +28,30 @@ public class SpecialApi {
     /**
      * 分页查询专题列表
      *
-     * @param pageParam 分页参数
+     * @param param 分页参数
      * @return
      */
     @POST
     @Path("/list")
-    @ApiOperation(value = "查询专题列表")
+    @ApiOperation(value = "查询专题列表", notes = "权限:special")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public PageInfo<SettingSpecial> specialList(@ApiParam(value = "分页参数", required = true) PageParam pageParam) {
-        return specialService.specialList(pageParam);
+    public PageInfo<SettingSpecial> list(@ApiParam(value = "分页参数", required = true) specialPageParam param) {
+        return specialService.list(param);
     }
 
     /**
      * 修改专题
      *
-     * @param special 专题参数
+     * @param param 专题参数
      */
     @PUT
     @Path("/update")
-    @ApiOperation(value = "查询专题列表")
+    @ApiOperation(value = "查询专题列表", notes = "权限:special")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void specialUpdate(@ApiParam(value = "专题参数", required = true) SettingSpecial special) {
-        specialService.specialUpdate(special);
+    public void update(@ApiParam(value = "专题参数", required = true) SpecialParam param) {
+        specialService.update(param);
     }
 
     /**
@@ -61,22 +61,22 @@ public class SpecialApi {
      */
     @DELETE
     @Path("/delete/{id}")
-    @ApiOperation(value = "删除专题")
+    @ApiOperation(value = "删除专题", notes = "权限:special")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void specialDelete(@ApiParam(value = "专题id", required = true) @PathParam("id") Integer id) {
-        specialService.specialDelete(id);
+    public void delete(@ApiParam(value = "专题id", required = true) @PathParam("id") Integer id) {
+        specialService.delete(id);
     }
 
     /**
-     * @param special
+     * @param param
      */
     @POST
     @Path("/add")
-    @ApiOperation(value = "增加专题")
+    @ApiOperation(value = "增加专题", notes = "权限:special")
     @Authority(AuthType.不检查)
     //  @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
-    public void specialAdd(@ApiParam(value = "专题内容", required = true) SettingSpecial special) {
-        specialService.specialAdd(special);
+    public void add(@ApiParam(value = "专题参数", required = true) SpecialParam param) {
+        specialService.add(param);
     }
 }

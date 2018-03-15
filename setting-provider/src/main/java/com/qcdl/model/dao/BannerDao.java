@@ -88,7 +88,8 @@ public class BannerDao {
         banner.setDeleted(DeleteType.启用.getCode());
         banner.setVersion(0);
         banner.setCreateTime(new Date());
-        banner.setAdminId(param.getAdminId());
+        //TODO 后台上线后解开
+//        banner.setAdminId(param.getAdminId());
         banner.setPosition(param.getPosition());
         banner.setPicture(param.getPicture());
         banner.setUrl(param.getUrl());

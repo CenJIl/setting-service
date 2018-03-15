@@ -2,39 +2,44 @@ package com.qcdl.service.impl;
 
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingInformation;
-import com.qcdl.model.param.PageParam;
+import com.qcdl.rest.param.InformationPageParam;
 import com.qcdl.rest.param.InformationParam;
 
 public interface InformationServiceI {
     /**
-     * 查询案例管理列表
+     * 分页查询案例列表
      *
-     * @param pageParam
-     * @param name
+     * @param param 分页,名称,行业id
      * @return
      */
-    PageInfo<SettingInformation> informationList(PageParam pageParam, String name, Integer ClassifyId);
+    PageInfo<SettingInformation> list(InformationPageParam param);
 
     /**
-     * 编辑案例内容
+     * 增加案例
      *
-     * @param information
+     * @param param 案例参数
      */
-    void informationUpdate(SettingInformation information);
+    void add(InformationParam param);
+
+    /**
+     * 查询案例详情
+     *
+     * @param id
+     * @return
+     */
+    SettingInformation getId(Integer id);
+
+    /**
+     * 修改案例信息
+     *
+     * @param param 案例参数
+     */
+    void update(InformationParam param);
 
     /**
      * 删除案例
      *
      * @param id
      */
-    void informationDelete(Integer id);
-
-    /**
-     * 增加案例
-     *
-     * @param information
-     */
-    void informationAdd(SettingInformation information);
-
-
+    void delete(Integer id);
 }

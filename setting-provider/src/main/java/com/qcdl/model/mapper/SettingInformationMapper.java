@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface SettingInformationMapper extends Mapper<SettingInformation>, MySqlMapper<SettingInformation> {
 
-    List<SettingInformation> informationList(@Param(value = "name") String name, @Param(value = "ClassifyId") Integer ClassifyId);
+    List<SettingInformation> informationList(@Param(value = "name") String name, @Param(value = "industryId") Integer industryId);
 
 }

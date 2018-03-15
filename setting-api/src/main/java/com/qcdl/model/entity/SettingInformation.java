@@ -40,7 +40,7 @@ public class SettingInformation implements Serializable {
      * 行业
      */
     @ApiModelProperty(value="行业",example="1")
-    private Integer industry;
+    private Integer industryId;
 
     /**
      * 作者
@@ -158,19 +158,19 @@ public class SettingInformation implements Serializable {
     /**
      * 获取行业
      *
-     * @return industry - 行业
+     * @return industryId - 行业
      */
-    public Integer getIndustry() {
-        return industry;
+    public Integer getIndustryId() {
+        return industryId;
     }
 
     /**
      * 设置行业
      *
-     * @param industry 行业
+     * @param industryId 行业
      */
-    public void setIndustry(Integer industry) {
-        this.industry = industry;
+    public void setIndustryId(Integer industryId) {
+        this.industryId = industryId;
     }
 
     /**
@@ -291,7 +291,7 @@ public class SettingInformation implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", cover=").append(cover);
         sb.append(", url=").append(url);
-        sb.append(", industry=").append(industry);
+        sb.append(", industryId=").append(industryId);
         sb.append(", author=").append(author);
         sb.append(", adminId=").append(adminId);
         sb.append(", createTime=").append(createTime);
@@ -318,7 +318,7 @@ public class SettingInformation implements Serializable {
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
             && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-            && (this.getIndustry() == null ? other.getIndustry() == null : this.getIndustry().equals(other.getIndustry()))
+            && (this.getIndustryId() == null ? other.getIndustryId() == null : this.getIndustryId().equals(other.getIndustryId()))
             && (this.getAuthor() == null ? other.getAuthor() == null : this.getAuthor().equals(other.getAuthor()))
             && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
@@ -335,7 +335,7 @@ public class SettingInformation implements Serializable {
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getCover() == null) ? 0 : getCover().hashCode());
         result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
-        result = prime * result + ((getIndustry() == null) ? 0 : getIndustry().hashCode());
+        result = prime * result + ((getIndustryId() == null) ? 0 : getIndustryId().hashCode());
         result = prime * result + ((getAuthor() == null) ? 0 : getAuthor().hashCode());
         result = prime * result + ((getAdminId() == null) ? 0 : getAdminId().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
