@@ -33,7 +33,6 @@ public class InformationDao {
         if (param.getPageSize() != null && param.getPageSize() > 0) {
             PageHelper.startPage(param.getPage(), param.getPageSize());
         }
-        System.out.println("123dao");
         return mapper.informationList(param.getName(), param.getIndustryId());
     }
 

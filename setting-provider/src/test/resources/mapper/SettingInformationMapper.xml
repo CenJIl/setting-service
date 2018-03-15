@@ -30,20 +30,20 @@
     <select id="informationList" resultMap="InformationMap">
         SELECT
         si.`name`,
-        i.industryName,
+        i.industry_name,
         si.cover,
         si.url,
         si.author,
         si.create_time
         FROM
         setting_information AS si
-        LEFT JOIN industry AS i ON i.id = si.industryId
+        LEFT JOIN industry AS i ON i.id = si.industry_id
         WHERE si.deleted = 0
         <if test="name != null">
             AND si.`name` LIKE CONCAT('%',#{name},'%')
         </if>
         <if test="industryId != null and industryId &gt; 0">
-            AND si.industryId = #{industryId}
+            AND si.industry_id = #{industryId}
         </if>
         ORDER BY si.create_time DESC
     </select>
