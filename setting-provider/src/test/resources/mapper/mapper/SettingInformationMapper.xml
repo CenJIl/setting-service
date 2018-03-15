@@ -25,6 +25,7 @@
         <result column="url" jdbcType="VARCHAR" property="url"/>
         <result column="industryName" jdbcType="VARCHAR" property="industryName"/>
         <result column="author" jdbcType="VARCHAR" property="author"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
 
     <select id="informationList" resultMap="InformationMap">

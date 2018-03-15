@@ -12,53 +12,30 @@ import java.util.Date;
 @ApiModel("案例添加与修改参数")
 public class InformationParam implements Serializable {
 
-    /**
-     * id
-     */
     @ApiModelProperty(value = "案例id,编辑时必须填写", example = "1")
     private Integer id;
 
-    /**
-     * 案例名称
-     */
     @ApiModelProperty(value = "案例名称", example = "这是一个案例")
     private String name;
 
-    /**
-     * 封面图
-     */
     @ApiModelProperty(value = "封面图", example = "/123.jpg")
     private String cover;
 
-    /**
-     * 文章链接
-     */
     @ApiModelProperty(value = "文章链接", example = "http://www.baidu.com")
     private String url;
 
-    /**
-     * 行业id
-     */
     @ApiModelProperty(value = "行业id", example = "1")
     private Integer industryId;
 
-    /**
-     * 行业名称
-     */
     @ApiModelProperty(value = "行业名称", example = "1")
     private String industryName;
 
-    /**
-     * 作者
-     */
     @ApiModelProperty(value = "作者", example = "作者")
     private String author;
 
+    @ApiModelProperty(value = "创建时间", example = "2018-3-15 23:00:33")
     private Date createTime;
 
-    /**
-     * 管理员id
-     */
     @ApiModelProperty(value = "管理员id", example = "1")
     private Integer adminId;
 
