@@ -37,9 +37,10 @@ public class InformationApi {
      */
     @POST
     @Path("/list")
-    @ApiOperation(value = "查询案例列表(分页)")
+    @ApiOperation(value = "查询案例列表(分页)", notes = "管理员调用，权限code：information")
     @Authority(AuthType.不检查)
     public PageInfo<SettingInformation> list(@ApiParam(value = "分页参数", required = true) InformationPageParam param) {
+        System.out.println("123");
         return informationService.list(param);
     }
 
@@ -51,7 +52,7 @@ public class InformationApi {
      */
     @GET
     @Path("/getId/{id}")
-    @ApiOperation(value = "查询案例详情")
+    @ApiOperation(value = "查询案例详情", notes = "管理员调用，权限code：information")
     @Authority(AuthType.不检查)
     public SettingInformation list(@ApiParam(value = "分页参数", required = true) @PathParam("id") Integer id) {
         return informationService.getId(id);
@@ -64,7 +65,7 @@ public class InformationApi {
      */
     @POST
     @Path("/add")
-    @ApiOperation(value = "添加案例", notes = "权限:Information")
+    @ApiOperation(value = "添加案例", notes = "管理员调用，权限code：information")
     @Authority(AuthType.不检查)
     public void add(@ApiParam(value = "广告内容", required = true) InformationParam param) {
         informationService.add(param);
@@ -77,7 +78,7 @@ public class InformationApi {
      */
     @PUT
     @Path("/update")
-    @ApiOperation(value = "修改案例", notes = "权限:Information")
+    @ApiOperation(value = "修改案例", notes = "管理员调用，权限code：information")
     @Authority(AuthType.不检查)
     public void update(@ApiParam(value = "案例参数", required = true) InformationParam param) {
         informationService.update(param);
@@ -90,7 +91,7 @@ public class InformationApi {
      */
     @DELETE
     @Path("/delete/{id}")
-    @ApiOperation(value = "删除案例", notes = "权限:Information")
+    @ApiOperation(value = "删除案例", notes = "管理员调用，权限code：information")
     @Authority(AuthType.不检查)
     public void delete(@ApiParam(value = "案例id", required = true) @PathParam("id") Integer id) {
         informationService.delete(id);

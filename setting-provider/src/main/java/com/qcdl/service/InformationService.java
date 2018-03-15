@@ -22,6 +22,7 @@ public class InformationService implements InformationServiceI {
 
     @Override
     public PageInfo<SettingInformation> list(InformationPageParam param) {
+        System.out.println("123service");
         return new PageInfo<>(dao.list(param));
     }
 

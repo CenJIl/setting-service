@@ -4,7 +4,7 @@ import com.qcdl.model.dao.IndustryDao;
 import com.qcdl.model.entity.industry;
 import com.qcdl.model.enums.DeleteType;
 import com.qcdl.rest.param.industryParam;
-import com.qcdl.service.impl.industryServiceI;
+import com.qcdl.service.impl.IndustryServiceI;
 import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.List;
  * Created by hxh on 2018/3/14.
  */
 @Service("classifyService")
-public class industryService implements industryServiceI {
+public class IndustryService implements IndustryServiceI {
     @Autowired
     private IndustryDao dao;
 

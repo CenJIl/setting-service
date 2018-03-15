@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qcdl.model.mapper.SettingSpecialMapper">
-  <resultMap id="BaseResultMap" type="com.qcdl.model.entity.SettingSpecial">
+<mapper namespace="com.qcdl.model.mapper.SettingAareaMapper">
+  <resultMap id="BaseResultMap" type="com.qcdl.model.entity.SettingAarea">
     <!--
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="cover" jdbcType="VARCHAR" property="cover" />
-    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="className" jdbcType="VARCHAR" property="classname" />
+    <result column="classPid" jdbcType="INTEGER" property="classpid" />
     <result column="weight" jdbcType="INTEGER" property="weight" />
-    <result column="admin_id" jdbcType="INTEGER" property="adminId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="version" jdbcType="INTEGER" property="version" />
     <result column="deleted" jdbcType="INTEGER" property="deleted" />
-    <result column="described" jdbcType="LONGVARCHAR" property="described" />
+    <result column="admin_id" jdbcType="INTEGER" property="adminId" />
   </resultMap>
 </mapper>

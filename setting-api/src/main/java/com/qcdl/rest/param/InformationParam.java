@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by hxh on 2018/3/15.
@@ -52,6 +53,8 @@ public class InformationParam implements Serializable {
      */
     @ApiModelProperty(value = "作者", example = "作者")
     private String author;
+
+    private Date createTime;
 
     /**
      * 管理员id
@@ -121,5 +124,13 @@ public class InformationParam implements Serializable {
 
     public void setIndustryName(String industryName) {
         this.industryName = industryName;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

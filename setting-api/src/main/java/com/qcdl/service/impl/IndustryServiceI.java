@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by hxh on 2018/3/14.
  */
-public interface industryServiceI {
+public interface IndustryServiceI {
 
     /**
      * 查询全部行业

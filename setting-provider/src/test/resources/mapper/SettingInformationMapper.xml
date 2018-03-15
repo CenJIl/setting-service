@@ -9,7 +9,7 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="cover" jdbcType="VARCHAR" property="cover"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
-        <result column="industry" jdbcType="INTEGER" property="industry"/>
+        <result column="industryId" jdbcType="INTEGER" property="industryId"/>
         <result column="author" jdbcType="VARCHAR" property="author"/>
         <result column="admin_id" jdbcType="INTEGER" property="adminId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
@@ -17,4 +17,34 @@
         <result column="version" jdbcType="INTEGER" property="version"/>
         <result column="deleted" jdbcType="INTEGER" property="deleted"/>
     </resultMap>
+
+    <resultMap id="InformationMap" type="com.qcdl.rest.param.InformationParam">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="cover" jdbcType="VARCHAR" property="cover"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="industryName" jdbcType="VARCHAR" property="industryName"/>
+        <result column="author" jdbcType="VARCHAR" property="author"/>
+    </resultMap>
+
+    <select id="informationList" resultMap="InformationMap">
+        SELECT
+        si.`name`,
+        i.industryName,
+        si.cover,
+        si.url,
+        si.author,
+        si.create_time
+        FROM
+        setting_information AS si
+        LEFT JOIN industry AS i ON i.id = si.industryId
+        WHERE si.deleted = 0
+        <if test="name != null">
+            AND si.`name` LIKE CONCAT('%',#{name},'%')
+        </if>
+        <if test="industryId != null and industryId &gt; 0">
+            AND si.industryId = #{industryId}
+        </if>
+        ORDER BY si.create_time DESC
+    </select>
 </mapper>

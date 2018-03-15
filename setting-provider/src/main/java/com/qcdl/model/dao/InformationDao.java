@@ -4,7 +4,7 @@ package com.qcdl.model.dao;
 import com.github.pagehelper.PageHelper;
 import com.qcdl.model.entity.SettingInformation;
 import com.qcdl.model.enums.DeleteType;
-import com.qcdl.model.mapper.industryMapper;
+import com.qcdl.model.mapper.IndustryMapper;
 import com.qcdl.model.mapper.SettingInformationMapper;
 import com.qcdl.rest.param.InformationPageParam;
 import com.qcdl.rest.param.InformationParam;
@@ -14,7 +14,6 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
-;
 
 @Component
 public class InformationDao {
@@ -22,7 +21,7 @@ public class InformationDao {
     private SettingInformationMapper mapper;
 
     @Resource
-    private industryMapper classifyMapper;
+    private IndustryMapper classifyMapper;
 
     /**
      * 查询案例列表(分页)
@@ -34,6 +33,7 @@ public class InformationDao {
         if (param.getPageSize() != null && param.getPageSize() > 0) {
             PageHelper.startPage(param.getPage(), param.getPageSize());
         }
+        System.out.println("123dao");
         return mapper.informationList(param.getName(), param.getIndustryId());
     }
 

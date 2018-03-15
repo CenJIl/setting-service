@@ -2,7 +2,7 @@ package com.qcdl.model.dao;
 
 import com.qcdl.model.entity.industry;
 import com.qcdl.model.enums.DeleteType;
-import com.qcdl.model.mapper.industryMapper;
+import com.qcdl.model.mapper.IndustryMapper;
 import com.qcdl.rest.param.industryParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ import java.util.List;
 public class IndustryDao {
 
     @Autowired
-    private industryMapper mapper;
+    private IndustryMapper mapper;
 
     /**
      * 查询全部行业

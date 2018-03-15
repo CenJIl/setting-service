@@ -25,4 +25,8 @@
     <dubbo:service interface="com.qcdl.service.impl.InformationServiceI" protocol="dubbo" ref="informationService" timeout="${dubbo.timeout}"/>
     <!--SpecialServiceI服务接口-->
     <dubbo:service interface="com.qcdl.service.impl.SpecialServiceI" protocol="dubbo" ref="specialService" timeout="${dubbo.timeout}"/>
+    <!--AreaService服务接口-->
+    <dubbo:service interface="com.qcdl.service.impl.AreaServiceI" protocol="dubbo" ref="areaService" timeout="${dubbo.timeout}"/>
+    <!--IndustryService服务接口-->
+    <dubbo:service interface="com.qcdl.service.impl.IndustryServiceI" protocol="dubbo" ref="industryService" timeout="${dubbo.timeout}"/>
 </beans>

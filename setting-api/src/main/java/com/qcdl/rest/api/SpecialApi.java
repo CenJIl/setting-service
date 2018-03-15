@@ -33,7 +33,7 @@ public class SpecialApi {
      */
     @POST
     @Path("/list")
-    @ApiOperation(value = "查询专题列表", notes = "权限:special")
+    @ApiOperation(value = "查询专题列表", notes = "管理员调用，权限code：special")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public PageInfo<SettingSpecial> list(@ApiParam(value = "分页参数", required = true) specialPageParam param) {
@@ -47,7 +47,7 @@ public class SpecialApi {
      */
     @PUT
     @Path("/update")
-    @ApiOperation(value = "查询专题列表", notes = "权限:special")
+    @ApiOperation(value = "查询专题列表", notes = "管理员调用，权限code：special")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public void update(@ApiParam(value = "专题参数", required = true) SpecialParam param) {
@@ -61,7 +61,7 @@ public class SpecialApi {
      */
     @DELETE
     @Path("/delete/{id}")
-    @ApiOperation(value = "删除专题", notes = "权限:special")
+    @ApiOperation(value = "删除专题", notes = "管理员调用，权限code：special")
     @Authority(AuthType.不检查)
 //    @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public void delete(@ApiParam(value = "专题id", required = true) @PathParam("id") Integer id) {
@@ -75,7 +75,7 @@ public class SpecialApi {
      */
     @POST
     @Path("/add")
-    @ApiOperation(value = "增加专题", notes = "权限:special")
+    @ApiOperation(value = "增加专题", notes = "管理员调用，权限code：special")
     @Authority(AuthType.不检查)
     //  @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
     public void add(@ApiParam(value = "专题参数", required = true) SpecialParam param) {
