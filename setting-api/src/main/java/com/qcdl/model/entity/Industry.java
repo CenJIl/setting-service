@@ -3,12 +3,10 @@ package com.qcdl.model.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author 魏自东
@@ -56,6 +54,18 @@ public class Industry implements Serializable {
     private Integer deleted;
 
     private static final long serialVersionUID = 1L;
+
+    @Transient
+    @ApiModelProperty("下级行业")
+    private List<Industry> children;
+
+    public List<Industry> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Industry> children) {
+        this.children = children;
+    }
 
     /**
      * 获取分类id

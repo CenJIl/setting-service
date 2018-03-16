@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author 魏自东
@@ -54,6 +55,17 @@ public class SettingArea implements Serializable {
     private Integer deleted;
 
     private static final long serialVersionUID = 1L;
+    @Transient
+    @ApiModelProperty("下级城市")
+    private List<SettingArea> children;
+
+    public List<SettingArea> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<SettingArea> children) {
+        this.children = children;
+    }
 
     /**
      * 获取地区id

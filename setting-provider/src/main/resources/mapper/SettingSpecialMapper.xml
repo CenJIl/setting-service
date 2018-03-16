@@ -16,5 +16,6 @@
     <result column="version" jdbcType="INTEGER" property="version" />
     <result column="deleted" jdbcType="INTEGER" property="deleted" />
     <result column="described" jdbcType="LONGVARCHAR" property="described" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
 </mapper>

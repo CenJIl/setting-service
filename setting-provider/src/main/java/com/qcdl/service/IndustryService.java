@@ -54,7 +54,11 @@ public class IndustryService implements IndustryServiceI {
         List<Industry> industryList = dao.list();
         return TreeUtil.bulid(industryList,
                 industry -> industry.getPid() == null || industry.getPid() == 0,
-                industry -> industryList.stream().filter(item -> industry.getId().equals(item.getPid())).collect(Collectors.toList()));
+                industry -> {
+                    List<Industry> children = industryList.stream().filter(item -> industry.getId().equals(item.getPid())).collect(Collectors.toList());
+                    industry.setChildren(children);
+                    return children;
+                });
     }
 
 }

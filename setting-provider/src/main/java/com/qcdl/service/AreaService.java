@@ -55,7 +55,11 @@ public class AreaService implements AreaServiceI {
         List<SettingArea> areaList = dao.list();
         return TreeUtil.bulid(areaList,
                 item -> item.getPid() == null || item.getPid() == 0,
-                item -> areaList.stream().filter(area -> item.getId().equals(area.getPid())).collect(Collectors.toList()));
+                item -> {
+                    List<SettingArea> children = areaList.stream().filter(area -> item.getId().equals(area.getPid())).collect(Collectors.toList());
+                    item.setChildren(children);
+                    return children;
+                });
     }
 
 }

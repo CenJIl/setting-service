@@ -9,13 +9,13 @@ import java.util.Date;
 
 /**
  * @author 魏自东
- * @date 2018/3/16 9:54
+ * @date 2018/3/16 15:18
  */
 @Table(name = "setting_special")
 @ApiModel("专题")
 public class SettingSpecial implements Serializable {
     /**
-     * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
+     * ID
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,7 +64,7 @@ public class SettingSpecial implements Serializable {
      * 更新时间
      */
     @Column(name = "update_time")
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty("更新时间")
     private Date updateTime;
 
     /**
@@ -76,7 +76,7 @@ public class SettingSpecial implements Serializable {
     /**
      * 删除状态(0.启用;1.禁用;2已删除)
      */
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty("删除状态(0.启用;1.禁用;2已删除)")
     private Integer deleted;
 
     /**
@@ -84,6 +84,12 @@ public class SettingSpecial implements Serializable {
      */
     @ApiModelProperty("专题描述")
     private String described;
+
+    /**
+     * 专题内容（富文本）
+     */
+    @ApiModelProperty("专题内容（富文本）")
+    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -285,6 +291,24 @@ public class SettingSpecial implements Serializable {
         this.described = described;
     }
 
+    /**
+     * 获取专题内容（富文本）
+     *
+     * @return content - 专题内容（富文本）
+     */
+    public String getContent() {
+        return content;
+    }
+
+    /**
+     * 设置专题内容（富文本）
+     *
+     * @param content 专题内容（富文本）
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -302,6 +326,7 @@ public class SettingSpecial implements Serializable {
         sb.append(", version=").append(version);
         sb.append(", deleted=").append(deleted);
         sb.append(", described=").append(described);
+        sb.append(", content=").append(content);
         sb.append("]");
         return sb.toString();
     }
@@ -328,7 +353,8 @@ public class SettingSpecial implements Serializable {
                 && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
                 && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
                 && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
-                && (this.getDescribed() == null ? other.getDescribed() == null : this.getDescribed().equals(other.getDescribed()));
+                && (this.getDescribed() == null ? other.getDescribed() == null : this.getDescribed().equals(other.getDescribed()))
+                && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
     }
 
     @Override
@@ -346,6 +372,7 @@ public class SettingSpecial implements Serializable {
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         result = prime * result + ((getDeleted() == null) ? 0 : getDeleted().hashCode());
         result = prime * result + ((getDescribed() == null) ? 0 : getDescribed().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 }
