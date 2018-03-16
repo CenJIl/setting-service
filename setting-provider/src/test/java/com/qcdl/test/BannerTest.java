@@ -25,7 +25,7 @@ public class BannerTest extends BasicTest{
         InformationPageParam param = new InformationPageParam();
         param.setPage(1);
         param.setPageSize(10);
-        PageInfo<SettingInformation> list = informationServiceI.list(param);
-        System.out.println(JSON.toJSONString(list));
+//        PageInfo<SettingInformation> list = informationServiceI.list(param);
+//        System.out.println(JSON.toJSONString(list));
     }
 }
