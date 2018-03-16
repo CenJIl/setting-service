@@ -1,10 +1,8 @@
 package com.qcdl.model.dao;
 
-import com.github.pagehelper.PageHelper;
 import com.qcdl.model.entity.SettingArea;
 import com.qcdl.model.enums.DeleteType;
-import com.qcdl.model.mapper.SettingAareaMapper;
-import com.qcdl.rest.param.AreaPageParam;
+import com.qcdl.model.mapper.SettingAreaMapper;
 import com.qcdl.rest.param.AreaParam;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.entity.Example;
@@ -20,21 +18,19 @@ import java.util.List;
 @Component
 public class AreaDao {
     @Resource
-    private SettingAareaMapper mapper;
+    private SettingAreaMapper mapper;
 
     /**
-     * 分页查询地区列表
+     * 获取地区列表
      *
-     * @param param 分页参数
      * @return 地区列表
      */
-    public List<SettingArea> list(AreaPageParam param) {
-        if (param.getPageSize() != null && param.getPageSize() > 0) {
-            PageHelper.startPage(param.getPage(), param.getPageSize());
-        }
-        Example example = new Example(SettingArea.class);
-        example.orderBy("weight").asc();
-        return mapper.selectByExample(example);
+    public List<SettingArea> list() {
+        Example e = new Example(SettingArea.class);
+        Example.Criteria c = e.createCriteria();
+        c.andEqualTo("deleted", DeleteType.启用.getCode());
+        e.orderBy("pid").asc().orderBy("weight").asc().orderBy("createTime").asc();
+        return mapper.selectByExample(e);
     }
 
     /**
@@ -45,8 +41,7 @@ public class AreaDao {
     public void add(AreaParam param) {
         SettingArea area = new SettingArea();
         area.setName(param.getName());
-        area.setClassName(param.getClassName());
-        area.setClassPid(param.getClassPid());
+        area.setPid(param.getPid());
         area.setWeight(param.getWeight());
         area.setCreateTime(new Date());
         area.setDeleted(DeleteType.启用.getCode());
@@ -72,7 +67,6 @@ public class AreaDao {
      * @param area 地区参数
      */
     public void update(SettingArea area) {
-        area.setUpdateTime(new Date());
         mapper.updateByPrimaryKeySelective(area);
     }
 }

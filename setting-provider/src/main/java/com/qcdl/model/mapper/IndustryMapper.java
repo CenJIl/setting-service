@@ -1,8 +1,8 @@
 package com.qcdl.model.mapper;
 
-import com.qcdl.model.entity.industry;
+import com.qcdl.model.entity.Industry;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
-public interface IndustryMapper extends Mapper<industry>, MySqlMapper<industry> {
+public interface IndustryMapper extends Mapper<Industry>, MySqlMapper<Industry> {
 }

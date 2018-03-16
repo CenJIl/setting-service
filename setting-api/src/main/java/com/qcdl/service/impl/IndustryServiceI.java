@@ -1,12 +1,13 @@
 package com.qcdl.service.impl;
 
-import com.qcdl.model.entity.industry;
-import com.qcdl.rest.param.industryParam;
+import com.qcdl.model.entity.Industry;
+import com.qcdl.rest.param.IndustryParam;
 
 import java.util.List;
 
 /**
- * Created by hxh on 2018/3/14.
+ * @author 魏自东
+ * @date 2018/3/16 10:54
  */
 public interface IndustryServiceI {
 
@@ -15,21 +16,21 @@ public interface IndustryServiceI {
      *
      * @return 所有行业
      */
-    List<industry> allList();
+    List<Industry> list();
 
     /**
      * 增加行业
      *
      * @param param 行业参数
      */
-    void add(industryParam param);
+    void add(IndustryParam param);
 
     /**
      * 更新行业信息
      *
      * @param param 行业参数
      */
-    void update(industryParam param);
+    void update(IndustryParam param);
 
     /**
      * 删除行
@@ -38,4 +39,10 @@ public interface IndustryServiceI {
      */
     void delete(Integer id);
 
+    /**
+     * 获取行业级联树
+     *
+     * @return 行业级联树
+     */
+    List<Industry> tree();
 }

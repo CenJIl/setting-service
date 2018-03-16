@@ -56,7 +56,7 @@ public class SettingBanner implements Serializable {
      * 管理员id
      */
     @Column(name = "admin_id")
-    @ApiModelProperty(value = "管理员id", example = "1")
+    @ApiModelProperty(hidden = true)
     private Integer adminId;
 
     /**

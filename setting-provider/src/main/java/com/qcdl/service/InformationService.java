@@ -3,6 +3,7 @@ package com.qcdl.service;
 import com.github.pagehelper.PageInfo;
 import com.qcdl.model.dao.InformationDao;
 import com.qcdl.model.entity.SettingInformation;
+import com.qcdl.rest.dto.InformationDto;
 import com.qcdl.rest.param.InformationPageParam;
 import com.qcdl.rest.param.InformationParam;
 import com.qcdl.service.impl.InformationServiceI;
@@ -21,29 +22,25 @@ public class InformationService implements InformationServiceI {
     private InformationDao dao;
 
     @Override
-    public PageInfo<InformationParam> list(InformationPageParam param) {
+    public PageInfo<InformationDto> list(InformationPageParam param) {
         return new PageInfo<>(dao.list(param));
     }
 
     @Override
-    public void add(InformationParam param) {
-        dao.add(param);
+    public void add(Integer adminId, InformationParam param) {
+        dao.add(adminId, param);
     }
 
     @Override
     public void update(InformationParam param) {
         SettingInformation information = dao.getId(param.getId());
         Assert.notNull(information, "该案例不存在!");
-        information.setId(param.getId());
         information.setName(param.getName());
         information.setAuthor(param.getAuthor());
         information.setCover(param.getCover());
         information.setUrl(param.getUrl());
-        //TODO 后台上线后解开
-//        information.setAdminId(param.getAdminId());
         information.setIndustryId(param.getIndustryId());
         information.setUpdateTime(new Date());
-//        information.setVersion(information.getVersion() + 1);
         dao.update(information);
     }
 

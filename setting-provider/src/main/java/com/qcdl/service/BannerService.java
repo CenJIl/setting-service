@@ -34,7 +34,6 @@ public class BannerService implements BannerServiceI {
         banner.setUrl(param.getUrl());
         banner.setPicture(param.getPicture());
         banner.setPosition(param.getPosition());
-        banner.setVersion(banner.getVersion() + 1);
         dao.update(banner);
     }
 

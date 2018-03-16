@@ -5,8 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.qcdl.model.entity.SettingSpecial;
 import com.qcdl.model.enums.DeleteType;
 import com.qcdl.model.mapper.SettingSpecialMapper;
+import com.qcdl.rest.param.SpecialPageParam;
 import com.qcdl.rest.param.SpecialParam;
-import com.qcdl.rest.param.specialPageParam;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.entity.Example;
 
@@ -26,13 +26,13 @@ public class SpecialDao {
      * @param param 分页参数
      * @return 专题列表
      */
-    public List<SettingSpecial> specialList(specialPageParam param) {
+    public List<SettingSpecial> specialList(SpecialPageParam param) {
+        Example example = new Example(SettingSpecial.class);
+        example.createCriteria().andEqualTo("deleted", DeleteType.启用.getCode());
+        example.orderBy("weight").asc().orderBy("createTime").desc();
         if (param.getPageSize() != null && param.getPageSize() > 0) {
             PageHelper.startPage(param.getPage(), param.getPageSize());
         }
-        Example example = new Example(SettingSpecial.class);
-        example.createCriteria().andEqualTo("deleted", DeleteType.启用.getCode());
-        example.orderBy("weight").asc();
         return mapper.selectByExample(example);
     }
 
@@ -42,8 +42,13 @@ public class SpecialDao {
      * @param param 专题信息
      */
     public void update(SettingSpecial param) {
+        Example e = new Example(SettingSpecial.class);
+        Example.Criteria c = e.createCriteria();
+        c.andEqualTo("id", param.getId());
+        c.andEqualTo("version", param.getVersion());
         param.setUpdateTime(new Date());
-        mapper.updateByPrimaryKeySelective(param);
+        param.setVersion(param.getVersion() + 1);
+        mapper.updateByExampleSelective(param, e);
     }
 
     /**
@@ -61,10 +66,12 @@ public class SpecialDao {
     /**
      * 增加专题信息
      *
-     * @param param 专题信息
+     * @param adminId 管理员ID
+     * @param param   专题信息
      */
-    public void add(SpecialParam param) {
+    public void add(Integer adminId, SpecialParam param) {
         SettingSpecial special = new SettingSpecial();
+        special.setAdminId(adminId);
         special.setName(param.getName());
         special.setCover(param.getCover());
         special.setDescribed(param.getDescribed());
@@ -84,6 +91,7 @@ public class SpecialDao {
     public SettingSpecial getId(Integer id) {
         SettingSpecial special = new SettingSpecial();
         special.setId(id);
+        special.setDeleted(DeleteType.启用.getCode());
         return mapper.selectOne(special);
     }
 }

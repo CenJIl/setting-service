@@ -1,79 +1,57 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author 魏自东
+ * @date 2018/3/16 11:02
+ */
 @Table(name = "setting_area")
+@ApiModel("地区")
 public class SettingArea implements Serializable {
     /**
      * 地区id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty(value = "地区id", example = "1")
+    @ApiModelProperty("ID")
     private Integer id;
 
     /**
      * 地区名称
      */
-    @ApiModelProperty(value = "地区名称", example = "武汉市")
+    @ApiModelProperty("地区名称")
     private String name;
-
-    /**
-     * 父级地区名称
-     */
-    @Column(name = "class_name")
-    @ApiModelProperty(value = "父级地区名称", example = "湖北省")
-    private String className;
 
     /**
      * 地区父id,为0时无上级地区
      */
-    @Column(name = "class_pid")
-    @ApiModelProperty(value = "地区父id,为0时无上级地区", example = "1")
-    private Integer classPid;
+    @ApiModelProperty("地区父id,0为顶级")
+    private Integer pid;
 
     /**
      * 权重值,从小到大排序,最小0,最大999
      */
-    @ApiModelProperty(value = "权重值,从小到大排序,最小0,最大999", example = "1")
+    @ApiModelProperty("权重值,从小到大排序,最小0,最大999")
     private Integer weight;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
-    @ApiModelProperty(value = "创建时间", example = "2018-3-15 22:38:56")
+    @ApiModelProperty("创建时间")
     private Date createTime;
 
     /**
-     * 更新时间
+     * 删除状态(0.启用;1.禁用;2.删除)
      */
-    @Column(name = "update_time")
-    @ApiModelProperty(value = "更新时间", example = "2018-3-15 22:39:02")
-    private Date updateTime;
-
-    /**
-     * 版本号
-     */
-    @ApiModelProperty(value = "版本号", example = "0")
-    private Integer version;
-
-    /**
-     * 删除状态(1.启用;2.禁用;3.删除)
-     */
-    @ApiModelProperty(value = "删除状态(0.启用;1.禁用;2.删除)", example = "1")
+    @ApiModelProperty(hidden = true)
     private Integer deleted;
-
-    /**
-     * 管理员id
-     */
-    @Column(name = "admin_id")
-    @ApiModelProperty(value = "管理员id", example = "1")
-    private Integer adminId;
 
     private static final long serialVersionUID = 1L;
 
@@ -114,39 +92,21 @@ public class SettingArea implements Serializable {
     }
 
     /**
-     * 获取等级名称
-     *
-     * @return className - 等级名称
-     */
-    public String getClassName() {
-        return className;
-    }
-
-    /**
-     * 设置等级名称
-     *
-     * @param className 等级名称
-     */
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    /**
      * 获取地区父id,为0时无上级地区
      *
-     * @return classPid - 地区父id,为0时无上级地区
+     * @return pid - 地区父id,为0时无上级地区
      */
-    public Integer getClassPid() {
-        return classPid;
+    public Integer getPid() {
+        return pid;
     }
 
     /**
      * 设置地区父id,为0时无上级地区
      *
-     * @param classPid 地区父id,为0时无上级地区
+     * @param pid 地区父id,为0时无上级地区
      */
-    public void setClassPid(Integer classPid) {
-        this.classPid = classPid;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     /**
@@ -186,75 +146,21 @@ public class SettingArea implements Serializable {
     }
 
     /**
-     * 获取更新时间
+     * 获取删除状态(0.启用;1.禁用;2.删除)
      *
-     * @return update_time - 更新时间
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-     * 设置更新时间
-     *
-     * @param updateTime 更新时间
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    /**
-     * 获取版本号
-     *
-     * @return version - 版本号
-     */
-    public Integer getVersion() {
-        return version;
-    }
-
-    /**
-     * 设置版本号
-     *
-     * @param version 版本号
-     */
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    /**
-     * 获取删除状态(1.启用;2.禁用;3.删除)
-     *
-     * @return deleted - 删除状态(1.启用;2.禁用;3.删除)
+     * @return deleted - 删除状态(0.启用;1.禁用;2.删除)
      */
     public Integer getDeleted() {
         return deleted;
     }
 
     /**
-     * 设置删除状态(1.启用;2.禁用;3.删除)
+     * 设置删除状态(0.启用;1.禁用;2.删除)
      *
-     * @param deleted 删除状态(1.启用;2.禁用;3.删除)
+     * @param deleted 删除状态(0.启用;1.禁用;2.删除)
      */
     public void setDeleted(Integer deleted) {
         this.deleted = deleted;
-    }
-
-    /**
-     * 获取管理员id
-     *
-     * @return admin_id - 管理员id
-     */
-    public Integer getAdminId() {
-        return adminId;
-    }
-
-    /**
-     * 设置管理员id
-     *
-     * @param adminId 管理员id
-     */
-    public void setAdminId(Integer adminId) {
-        this.adminId = adminId;
     }
 
     @Override
@@ -265,14 +171,10 @@ public class SettingArea implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
-        sb.append(", className=").append(className);
-        sb.append(", classPid=").append(classPid);
+        sb.append(", pid=").append(pid);
         sb.append(", weight=").append(weight);
         sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", version=").append(version);
         sb.append(", deleted=").append(deleted);
-        sb.append(", adminId=").append(adminId);
         sb.append("]");
         return sb.toString();
     }
@@ -291,14 +193,10 @@ public class SettingArea implements Serializable {
         SettingArea other = (SettingArea) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getClassName() == null ? other.getClassName() == null : this.getClassName().equals(other.getClassName()))
-                && (this.getClassPid() == null ? other.getClassPid() == null : this.getClassPid().equals(other.getClassPid()))
+                && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()))
                 && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
                 && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
-                && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()));
+                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()));
     }
 
     @Override
@@ -307,14 +205,10 @@ public class SettingArea implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getClassName() == null) ? 0 : getClassName().hashCode());
-        result = prime * result + ((getClassPid() == null) ? 0 : getClassPid().hashCode());
+        result = prime * result + ((getPid() == null) ? 0 : getPid().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
-        result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         result = prime * result + ((getDeleted() == null) ? 0 : getDeleted().hashCode());
-        result = prime * result + ((getAdminId() == null) ? 0 : getAdminId().hashCode());
         return result;
     }
 }

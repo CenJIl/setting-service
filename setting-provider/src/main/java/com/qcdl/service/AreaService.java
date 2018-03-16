@@ -1,38 +1,39 @@
 package com.qcdl.service;
 
-import com.github.pagehelper.PageInfo;
 import com.qcdl.model.dao.AreaDao;
 import com.qcdl.model.entity.SettingArea;
 import com.qcdl.model.enums.DeleteType;
-import com.qcdl.rest.param.AreaPageParam;
 import com.qcdl.rest.param.AreaParam;
 import com.qcdl.service.impl.AreaServiceI;
 import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.wzd.framwork.utils.TreeUtil;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- * Created by hxh on 2018/3/15.
+ * @author 魏自东
+ * @date 2018/3/16 11:04
  */
 @Service("areaService")
 public class AreaService implements AreaServiceI {
-
     @Autowired
     private AreaDao dao;
 
     @Override
-    public PageInfo<SettingArea> list(AreaPageParam param) {
-        return new PageInfo<>(dao.list(param));
+    public List<SettingArea> list() {
+        return dao.list();
     }
 
     @Override
     public void update(AreaParam param) {
         SettingArea area = dao.getId(param.getId());
         Assert.notNull(area, "该城市不存在!");
-        area.setId(param.getId());
         area.setName(param.getName());
-        area.setClassPid(param.getClassPid());
         area.setWeight(param.getWeight());
+        area.setPid(param.getPid());
         dao.update(area);
     }
 
@@ -40,7 +41,6 @@ public class AreaService implements AreaServiceI {
     public void delete(Integer id) {
         SettingArea area = dao.getId(id);
         Assert.notNull(area, "该城市不存在!");
-        area.setId(id);
         area.setDeleted(DeleteType.已删除.getCode());
         dao.update(area);
     }
@@ -50,8 +50,12 @@ public class AreaService implements AreaServiceI {
         dao.add(param);
     }
 
-//    @Override
-//    public SettingBanner get(Integer id) {
-//        return null;
-//    }
+    @Override
+    public List<SettingArea> tree() {
+        List<SettingArea> areaList = dao.list();
+        return TreeUtil.bulid(areaList,
+                item -> item.getPid() == null || item.getPid() == 0,
+                item -> areaList.stream().filter(area -> item.getId().equals(area.getPid())).collect(Collectors.toList()));
+    }
+
 }

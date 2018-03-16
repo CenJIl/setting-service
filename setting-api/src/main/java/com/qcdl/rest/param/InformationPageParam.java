@@ -10,17 +10,13 @@ import java.io.Serializable;
  */
 @ApiModel("案例分页参数")
 public class InformationPageParam implements Serializable {
-
-    @ApiModelProperty(value = "案例名称,为空时查询全部", required = true, example = "案例")
+    @ApiModelProperty(value = "案例名称", example = "案例")
     private String name;
-
-    @ApiModelProperty(value = "行业id,为0时查询全部", required = true, example = "1")
+    @ApiModelProperty(value = "行业id,为0时查询全部", example = "1")
     private Integer industryId;
-
-    @ApiModelProperty(value = "当前页", required = true, example = "1")
+    @ApiModelProperty(value = "当前页", example = "1")
     private Integer page = 1;
-
-    @ApiModelProperty(value = "每页条数", required = false, example = "10")
+    @ApiModelProperty(value = "每页条数", example = "10")
     private Integer pageSize = 10;
 
     public String getName() {

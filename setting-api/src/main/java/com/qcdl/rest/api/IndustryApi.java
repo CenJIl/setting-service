@@ -1,7 +1,7 @@
 package com.qcdl.rest.api;
 
-import com.qcdl.model.entity.industry;
-import com.qcdl.rest.param.industryParam;
+import com.qcdl.model.entity.Industry;
+import com.qcdl.rest.param.IndustryParam;
 import com.qcdl.service.impl.IndustryServiceI;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,7 +15,8 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * Created by hxh on 2018/3/14.
+ * @author 魏自东
+ * @date 2018/3/16 10:56
  */
 @Path("/industry")
 @Api("行业")
@@ -23,54 +24,41 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 //@ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
 public class IndustryApi {
-
     @Autowired
     private IndustryServiceI classifyService;
 
-    /**
-     * 查询全部行业
-     *
-     * @return 所有行业
-     */
     @POST
-    @Path("/allList")
-    @ApiOperation(value = "查询全部行业", notes = "管理员调用，权限code：industry")
+    @Path("/list")
+    @ApiOperation(value = "查询全部行业")
     @Authority(AuthType.不检查)
-    public List<industry> allList() {
-        return classifyService.allList();
+    public List<Industry> list() {
+        return classifyService.list();
     }
 
-    /**
-     * 增加行业
-     *
-     * @param param 行业参数
-     */
+    @POST
+    @Path("/tree")
+    @ApiOperation(value = "获取行业树")
+    @Authority(AuthType.不检查)
+    public List<Industry> tree() {
+        return classifyService.tree();
+    }
+
     @POST
     @Path("/add")
     @ApiOperation(value = "增加行业", notes = "管理员调用，权限code：industry")
     @Authority(AuthType.不检查)
-    public void add(@ApiParam(value = "行业参数", required = true) industryParam param) {
+    public void add(@ApiParam(value = "行业参数", required = true) IndustryParam param) {
         classifyService.add(param);
     }
 
-    /**
-     * 编辑行业信息
-     *
-     * @param param 行业参数
-     */
     @PUT
     @Path("/update")
     @ApiOperation(value = "编辑行业信息", notes = "管理员调用，权限code：industry")
     @Authority(AuthType.不检查)
-    public void update(@ApiParam(value = "行业参数", required = true) industryParam param) {
+    public void update(@ApiParam(value = "行业参数", required = true) IndustryParam param) {
         classifyService.update(param);
     }
 
-    /**
-     * 删除行业
-     *
-     * @param id 行业ID
-     */
     @DELETE
     @Path("/delete/{id}")
     @ApiOperation(value = "删除行业", notes = "管理员调用，权限code：industry")

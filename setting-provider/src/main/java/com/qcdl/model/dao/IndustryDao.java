@@ -1,11 +1,11 @@
 package com.qcdl.model.dao;
 
-import com.qcdl.model.entity.industry;
+import com.qcdl.model.entity.Industry;
 import com.qcdl.model.enums.DeleteType;
 import com.qcdl.model.mapper.IndustryMapper;
-import com.qcdl.rest.param.industryParam;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.qcdl.rest.param.IndustryParam;
 import org.springframework.stereotype.Component;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -26,8 +26,12 @@ public class IndustryDao {
      *
      * @return 所有行业
      */
-    public List<industry> allList() {
-        return mapper.selectAll();
+    public List<Industry> list() {
+        Example e = new Example(Industry.class);
+        Example.Criteria c = e.createCriteria();
+        c.andEqualTo("deleted", DeleteType.启用.getCode());
+        e.orderBy("pid").asc().orderBy("weight").asc().orderBy("createTime").asc();
+        return mapper.selectByExample(e);
     }
 
     /**
@@ -35,34 +39,23 @@ public class IndustryDao {
      *
      * @param param 行业参数
      */
-    public void add(industryParam param) {
-        industry classify = new industry();
-        classify.setName(param.getName());
-        classify.setParentId(param.getParentId());
-        classify.setUrl(param.getUrl());
-        classify.setCreateTime(new Date());
-        classify.setWeight(param.getWeight());
-        classify.setDeleted(DeleteType.启用.getCode());
-        mapper.insertSelective(classify);
+    public void add(IndustryParam param) {
+        Industry i = new Industry();
+        i.setName(param.getName());
+        i.setPid(param.getPid());
+        i.setWeight(param.getWeight());
+        i.setCreateTime(new Date());
+        i.setDeleted(DeleteType.启用.getCode());
+        mapper.insertSelective(i);
     }
 
     /**
      * 修改行业信息
      *
-     * @param industry 行业参数
+     * @param i 行业参数
      */
-    public void update(industry industry) {
-        industry.setUpdateTime(new Date());
-        mapper.updateByPrimaryKeySelective(industry);
-    }
-
-    /**
-     * 删除行业信息(未使用)
-     *
-     * @param id 行业id
-     */
-    public void delete(Integer id) {
-        mapper.deleteByPrimaryKey(id);
+    public void update(Industry i) {
+        mapper.updateByPrimaryKeySelective(i);
     }
 
     /**
@@ -71,9 +64,10 @@ public class IndustryDao {
      * @param id 行业id
      * @return 行业信息
      */
-    public industry getId(Integer id) {
-        industry classify = new industry();
-        classify.setId(id);
-        return mapper.selectOne(classify);
+    public Industry getId(Integer id) {
+        Industry i = new Industry();
+        i.setId(id);
+        i.setDeleted(DeleteType.启用.getCode());
+        return mapper.selectOne(i);
     }
 }

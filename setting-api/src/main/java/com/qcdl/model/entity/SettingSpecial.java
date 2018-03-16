@@ -1,69 +1,88 @@
 package com.qcdl.model.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author 魏自东
+ * @date 2018/3/16 9:54
+ */
 @Table(name = "setting_special")
+@ApiModel("专题")
 public class SettingSpecial implements Serializable {
     /**
      * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("ID")
     private Integer id;
 
     /**
      * 专题名称
      */
+    @ApiModelProperty("专题名称")
     private String name;
 
     /**
      * 封面图
      */
+    @ApiModelProperty("封面图")
     private String cover;
 
     /**
      * 专题链接
      */
+    @ApiModelProperty("专题链接")
     private String url;
 
     /**
      * 权重值,数值越小越靠前,最小0，最大999
      */
+    @ApiModelProperty("权重值,数值越小越靠前,最小0，最大999")
     private Integer weight;
 
     /**
      * 管理员id
      */
     @Column(name = "admin_id")
+    @ApiModelProperty(hidden = true)
     private Integer adminId;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
+    @ApiModelProperty("创建时间")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
+    @ApiModelProperty(hidden = true)
     private Date updateTime;
 
     /**
      * 版本号
      */
+    @ApiModelProperty(hidden = true)
     private Integer version;
 
     /**
      * 删除状态(0.启用;1.禁用;2已删除)
      */
+    @ApiModelProperty(hidden = true)
     private Integer deleted;
 
     /**
      * 专题描述
      */
+    @ApiModelProperty("专题描述")
     private String described;
 
     private static final long serialVersionUID = 1L;
@@ -300,16 +319,16 @@ public class SettingSpecial implements Serializable {
         }
         SettingSpecial other = (SettingSpecial) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-            && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
-            && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
-            && (this.getDescribed() == null ? other.getDescribed() == null : this.getDescribed().equals(other.getDescribed()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
+                && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
+                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
+                && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
+                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
+                && (this.getDescribed() == null ? other.getDescribed() == null : this.getDescribed().equals(other.getDescribed()));
     }
 
     @Override

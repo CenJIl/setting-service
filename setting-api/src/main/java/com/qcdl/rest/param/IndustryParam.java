@@ -6,10 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 /**
- * Created by hxh on 2018/3/15.
+ * @author 魏自东
+ * @date 2018/3/16 10:55
  */
 @ApiModel("行业添加与修改参数")
-public class industryParam implements Serializable {
+public class IndustryParam implements Serializable {
 
     @ApiModelProperty(value = "行业id,编辑时必须填写", example = "1")
     private Integer id;
@@ -17,11 +18,8 @@ public class industryParam implements Serializable {
     @ApiModelProperty(value = "行业名称", example = "建材")
     private String name;
 
-    @ApiModelProperty(value = "行业父id", example = "1")
-    private Integer parentId;
-
-    @ApiModelProperty(value = "url地址", example = "http://www.baidu.com")
-    private String url;
+    @ApiModelProperty(value = "行业父id,0为顶级行业", example = "1")
+    private Integer pid;
 
     @ApiModelProperty(value = "权重值,从小到大,0最小,999最大", example = "1")
     private Integer weight;
@@ -34,14 +32,6 @@ public class industryParam implements Serializable {
         this.id = id;
     }
 
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Integer weight) {
-        this.weight = weight;
-    }
-
     public String getName() {
         return name;
     }
@@ -50,19 +40,19 @@ public class industryParam implements Serializable {
         this.name = name;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
-    public String getUrl() {
-        return url;
+    public Integer getWeight() {
+        return weight;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 }

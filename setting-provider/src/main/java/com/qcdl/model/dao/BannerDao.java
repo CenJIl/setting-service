@@ -34,7 +34,9 @@ public class BannerDao {
     public List<SettingBanner> list(BannerPageParam param) {
         Example e = new Example(SettingBanner.class);
         Example.Criteria c = e.createCriteria();
-        c.andIn("position", Arrays.asList(0, param.getPosition()));
+        if (param.getPosition() != null && param.getPosition() > 0) {
+            c.andIn("position", Arrays.asList(0, param.getPosition()));
+        }
         c.andIn("deleted", Arrays.asList(DeleteType.启用.getCode(), DeleteType.禁用.getCode()));
         e.orderBy("weight").asc().orderBy("createTime").desc();
         if (param.getPageSize() != null && param.getPageSize() > 0) {
@@ -74,8 +76,12 @@ public class BannerDao {
      * @param banner 待更新广告
      */
     public void update(SettingBanner banner) {
-        banner.setUpdateTime(new Date());
-        mapper.updateByPrimaryKeySelective(banner);
+        Example e = new Example(SettingBanner.class);
+        Example.Criteria c = e.createCriteria();
+        c.andEqualTo("id", banner.getId());
+        c.andEqualTo("version", banner.getVersion());
+        banner.setVersion(banner.getVersion() + 1);
+        mapper.updateByExampleSelective(banner, e);
     }
 
     /**
@@ -88,8 +94,7 @@ public class BannerDao {
         banner.setDeleted(DeleteType.启用.getCode());
         banner.setVersion(0);
         banner.setCreateTime(new Date());
-        //TODO 后台上线后解开
-//        banner.setAdminId(param.getAdminId());
+        banner.setAdminId(param.getAdminId());
         banner.setPosition(param.getPosition());
         banner.setPicture(param.getPicture());
         banner.setUrl(param.getUrl());

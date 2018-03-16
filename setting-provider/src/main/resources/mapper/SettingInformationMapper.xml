@@ -9,7 +9,7 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="cover" jdbcType="VARCHAR" property="cover"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
-        <result column="industryId" jdbcType="INTEGER" property="industryId"/>
+        <result column="industry_id" jdbcType="INTEGER" property="industryId"/>
         <result column="author" jdbcType="VARCHAR" property="author"/>
         <result column="admin_id" jdbcType="INTEGER" property="adminId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
@@ -18,34 +18,21 @@
         <result column="deleted" jdbcType="INTEGER" property="deleted"/>
     </resultMap>
 
-    <resultMap id="InformationMap" type="com.qcdl.rest.param.InformationParam">
-        <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="cover" jdbcType="VARCHAR" property="cover"/>
-        <result column="url" jdbcType="VARCHAR" property="url"/>
-        <result column="industryName" jdbcType="VARCHAR" property="industryName"/>
-        <result column="author" jdbcType="VARCHAR" property="author"/>
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <resultMap id="InformationDtoMap" type="com.qcdl.rest.dto.InformationDto">
+        <result column="industry" jdbcType="VARCHAR" property="industry"/>
     </resultMap>
 
-    <select id="informationList" resultMap="InformationMap">
-        SELECT
-        si.`name`,
-        i.industry_name,
-        si.cover,
-        si.url,
-        si.author,
-        si.create_time
-        FROM
-        setting_information AS si
-        LEFT JOIN industry AS i ON i.id = si.industry_id
-        WHERE si.deleted = 0
-        <if test="name != null">
-            AND si.`name` LIKE CONCAT('%',#{name},'%')
-        </if>
-        <if test="industryId != null and industryId &gt; 0">
-            AND si.industry_id = #{industryId}
-        </if>
-        ORDER BY si.create_time DESC
+    <select id="informationList" resultMap="InformationDtoMap">
+        SELECT * FROM setting_information s LEFT JOIN industry i ON s.industry_id = i.id
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="name != null and name != ''">
+                AND s.name LIKE concat('%',#{name},'%')
+            </if>
+            <if test="industryId != null and industryId &gt; 0">
+                AND s.industry_id = #{industryId}
+            </if>
+            AND s.deleted = 0
+        </trim>
+        ORDER BY s.create_time DESC
     </select>
 </mapper>

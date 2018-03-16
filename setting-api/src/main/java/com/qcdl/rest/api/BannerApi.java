@@ -2,6 +2,7 @@ package com.qcdl.rest.api;
 
 
 import com.github.pagehelper.PageInfo;
+import com.qcdl.model.entity.Admin;
 import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.rest.param.BannerPageParam;
 import com.qcdl.rest.param.BannerParam;
@@ -30,25 +31,14 @@ public class BannerApi {
     @Autowired
     private BannerServiceI bannerService;
 
-    /**
-     * 获取广告列表
-     *
-     * @param param 分页参数
-     * @return 广告列表
-     */
     @POST
     @Path("/list")
-    @ApiOperation(value = "获取广告列表", notes = "管理员调用，权限code：banner")
+    @ApiOperation(value = "获取广告列表")
     @Authority(AuthType.不检查)
     public PageInfo<SettingBanner> list(@ApiParam(value = "广告列表分页查询参数", required = true) BannerPageParam param) {
         return bannerService.list(param);
     }
 
-    /**
-     * 编辑广告信息
-     *
-     * @param banner 广告参数
-     */
     @PUT
     @Path("/update")
     @ApiOperation(value = "编辑广告", notes = "管理员调用，权限code：banner")
@@ -58,11 +48,6 @@ public class BannerApi {
         bannerService.update(banner);
     }
 
-    /**
-     * 根据id删除广告
-     *
-     * @param id 广告id
-     */
     @DELETE
     @Path("/delete/{id}")
     @ApiOperation(value = "删除广告", notes = "管理员调用，权限code：banner")
@@ -72,12 +57,6 @@ public class BannerApi {
         bannerService.delete(id);
     }
 
-    /**
-     * 增加一条广告
-     *
-     * @param param   广告参数
-     * @param request 缓存
-     */
     @POST
     @Path("/add")
     @ApiOperation(value = "增加广告", notes = "管理员调用，权限code：banner")
@@ -86,16 +65,11 @@ public class BannerApi {
     public void add(@ApiParam(value = "广告参数", required = true) BannerParam param, @Context HttpServletRequest request) {
         // TODO：后台上线后，该注释需要解开
 //        Admin a = SessionUtil.getUser(request, Admin.class);
-//        param.setAdminId(a.getId());
+        Admin a = new Admin();
+        param.setAdminId(a.getId());
         bannerService.add(param);
     }
 
-    /**
-     * 获取广告详情
-     *
-     * @param id 广告id
-     * @return 广告详情
-     */
     @GET
     @Path("/get/{id}")
     @ApiOperation(value = "获取广告详情", notes = "管理员调用，权限code：banner")

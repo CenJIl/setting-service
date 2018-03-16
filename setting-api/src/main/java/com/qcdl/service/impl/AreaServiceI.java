@@ -1,22 +1,22 @@
 package com.qcdl.service.impl;
 
-import com.github.pagehelper.PageInfo;
 import com.qcdl.model.entity.SettingArea;
-import com.qcdl.rest.param.AreaPageParam;
 import com.qcdl.rest.param.AreaParam;
 
+import java.util.List;
+
 /**
- * Created by hxh on 2018/3/15.
+ * @author 魏自东
+ * @date 2018/3/16 10:32
  */
 public interface AreaServiceI {
 
     /**
-     * 分页查询地区列表
+     * 获取地区列表
      *
-     * @param param 分页参数
      * @return 地区列表
      */
-    PageInfo<SettingArea> list(AreaPageParam param);
+    List<SettingArea> list();
 
     /**
      * 编辑地区信息
@@ -39,5 +39,11 @@ public interface AreaServiceI {
      */
     void add(AreaParam param);
 
-//    SettingBanner get(Integer id);
+    /**
+     * 获取地区级联树
+     *
+     * @return 地区树
+     */
+    List<SettingArea> tree();
+
 }
