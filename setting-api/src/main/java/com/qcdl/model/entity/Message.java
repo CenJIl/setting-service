@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author yuanhua
+ */
 @Table(name = "message")
 @ApiModel("消息")
 public class Message implements Serializable {

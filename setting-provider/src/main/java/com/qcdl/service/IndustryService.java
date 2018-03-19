@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by hxh on 2018/3/14.
+ *
+ * @author hxh
+ * @date 2018/3/14
  */
 @Service("classifyService")
 public class IndustryService implements IndustryServiceI {

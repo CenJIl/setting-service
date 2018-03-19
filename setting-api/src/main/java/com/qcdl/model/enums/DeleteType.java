@@ -9,7 +9,9 @@ import org.restful.api.filter.exception.WebException;
  * @date 2018/3/7 10:56
  */
 public enum DeleteType {
-
+    /**
+     * 删除状态
+     */
     启用(0), 禁用(1), 已删除(2);
     int code;
 

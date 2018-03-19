@@ -5,6 +5,9 @@ import io.swagger.annotations.ApiModel;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * @author yuanhua
+ */
 @Table(name = "mark_case")
 @ApiModel("案例已读未读")
 public class MarkCase implements Serializable {
