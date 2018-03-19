@@ -16,15 +16,20 @@ import javax.annotation.Resource;
 public class BannerTest extends BasicTest {
     @Resource
     BannerServiceI service;
-    @Autowired
+    @Resource
     InformationServiceI informationServiceI;
 
     @Test
     public void test() {
+//        InformationPageParam param = new InformationPageParam();
+//        param.setPage(1);
+//        param.setPageSize(10);
+//        PageInfo<InformationDto> list = informationServiceI.list(param);
+//        System.out.println(JSON.toJSONString(list));
         InformationPageParam param = new InformationPageParam();
         param.setPage(1);
         param.setPageSize(10);
-        PageInfo<InformationDto> list = informationServiceI.list(param);
-        System.out.println(JSON.toJSONString(list));
+
+        informationServiceI.list(param);
     }
 }

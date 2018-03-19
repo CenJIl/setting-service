@@ -1,89 +1,76 @@
 package com.qcdl.model.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author 魏自东
- * @date 2018/3/16 10:09
- */
 @Table(name = "setting_information")
-@ApiModel("案例管理")
 public class SettingInformation implements Serializable {
     /**
      * id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty(value = "案例id", example = "1")
     private Integer id;
 
     /**
      * 案例名称
      */
-    @ApiModelProperty(value = "案例名称", example = "这是一个案例")
     private String name;
 
     /**
      * 封面图
      */
-    @ApiModelProperty(value = "封面图", example = "123.jpg")
     private String cover;
 
     /**
      * 文章链接
      */
-    @ApiModelProperty(value = "文章链接")
     private String url;
 
     /**
      * 行业
      */
-    @ApiModelProperty(value = "行业", example = "1")
+    @Column(name = "industry_id")
     private Integer industryId;
 
     /**
      * 作者
      */
-    @ApiModelProperty(value = "作者", example = "作者")
     private String author;
 
     /**
      * 管理员id
      */
     @Column(name = "admin_id")
-    @ApiModelProperty(value = "管理员id", example = "1")
     private Integer adminId;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
-    @ApiModelProperty(value = "创建时间", example = "2018-3-14 15:49:05")
     private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
-    @ApiModelProperty(value = "更新时间", example = "2018-3-14 15:49:11")
     private Date updateTime;
 
     /**
      * 版本号
      */
-    @ApiModelProperty(value = "版本号", example = "1")
     private Integer version;
 
     /**
      * 删除状态(默认启用):0.启用;1.禁用;2.已删除;
      */
-    @ApiModelProperty(value = "删除状态(默认启用):0.启用;1.禁用;2.已删除;", example = "1")
     private Integer deleted;
+
+    /**
+     * 案例描述
+     */
+    private String description;
 
     private static final long serialVersionUID = 1L;
 
@@ -162,7 +149,7 @@ public class SettingInformation implements Serializable {
     /**
      * 获取行业
      *
-     * @return industryId - 行业
+     * @return industry_id - 行业
      */
     public Integer getIndustryId() {
         return industryId;
@@ -285,6 +272,24 @@ public class SettingInformation implements Serializable {
         this.deleted = deleted;
     }
 
+    /**
+     * 获取案例描述
+     *
+     * @return description - 案例描述
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * 设置案例描述
+     *
+     * @param description 案例描述
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -302,6 +307,7 @@ public class SettingInformation implements Serializable {
         sb.append(", updateTime=").append(updateTime);
         sb.append(", version=").append(version);
         sb.append(", deleted=").append(deleted);
+        sb.append(", description=").append(description);
         sb.append("]");
         return sb.toString();
     }
@@ -319,16 +325,17 @@ public class SettingInformation implements Serializable {
         }
         SettingInformation other = (SettingInformation) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
-                && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-                && (this.getIndustryId() == null ? other.getIndustryId() == null : this.getIndustryId().equals(other.getIndustryId()))
-                && (this.getAuthor() == null ? other.getAuthor() == null : this.getAuthor().equals(other.getAuthor()))
-                && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
-                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()));
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getCover() == null ? other.getCover() == null : this.getCover().equals(other.getCover()))
+            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
+            && (this.getIndustryId() == null ? other.getIndustryId() == null : this.getIndustryId().equals(other.getIndustryId()))
+            && (this.getAuthor() == null ? other.getAuthor() == null : this.getAuthor().equals(other.getAuthor()))
+            && (this.getAdminId() == null ? other.getAdminId() == null : this.getAdminId().equals(other.getAdminId()))
+            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
+            && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()));
     }
 
     @Override
@@ -346,6 +353,7 @@ public class SettingInformation implements Serializable {
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         result = prime * result + ((getDeleted() == null) ? 0 : getDeleted().hashCode());
+        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         return result;
     }
 }

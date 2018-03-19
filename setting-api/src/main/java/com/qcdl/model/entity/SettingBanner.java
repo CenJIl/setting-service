@@ -41,7 +41,7 @@ public class SettingBanner implements Serializable {
     private String url;
 
     /**
-     * 广告位置()
+     * 广告位置,0:所有广告位置,1-999:其他广告位置
      */
     @ApiModelProperty(value = "广告位置", example = "1")
     private Integer position;
