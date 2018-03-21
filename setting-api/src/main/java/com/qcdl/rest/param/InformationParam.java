@@ -23,6 +23,8 @@ public class InformationParam implements Serializable {
     private Integer industryId;
     @ApiModelProperty(value = "作者", example = "作者")
     private String author;
+    @ApiModelProperty(value = "案例描述", example = "描述")
+    private String description;
 
     public Integer getId() {
         return id;
@@ -70,5 +72,13 @@ public class InformationParam implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

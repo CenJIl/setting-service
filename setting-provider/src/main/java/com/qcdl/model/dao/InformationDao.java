@@ -45,6 +45,7 @@ public class InformationDao {
      */
     public void add(Integer adminId, InformationParam param) {
         SettingInformation information = new SettingInformation();
+        information.setId(null);
         information.setName(param.getName());
         information.setAuthor(param.getAuthor());
         information.setCover(param.getCover());
