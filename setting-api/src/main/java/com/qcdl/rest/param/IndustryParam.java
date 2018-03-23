@@ -55,4 +55,5 @@ public class IndustryParam implements Serializable {
     public void setWeight(Integer weight) {
         this.weight = weight;
     }
+
 }
