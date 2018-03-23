@@ -23,6 +23,16 @@ public class SpecialParam implements Serializable {
     private String described;
     @ApiModelProperty(value = "权重值", example = "1")
     private Integer weight;
+    @ApiModelProperty("专题内容（富文本）")
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public Integer getId() {
         return id;

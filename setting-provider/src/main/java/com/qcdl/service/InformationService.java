@@ -41,6 +41,8 @@ public class InformationService implements InformationServiceI {
         information.setUrl(param.getUrl());
         information.setIndustryId(param.getIndustryId());
         information.setUpdateTime(new Date());
+        information.setDescription(param.getDescription());
+        information.setContent(param.getContent());
         dao.update(information);
     }
 

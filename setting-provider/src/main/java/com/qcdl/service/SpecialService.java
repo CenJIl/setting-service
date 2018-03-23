@@ -34,6 +34,7 @@ public class SpecialService implements SpecialServiceI {
         special.setDescribed(param.getDescribed());
         special.setUrl(param.getUrl());
         special.setWeight(param.getWeight());
+        special.setContent(param.getContent());
         dao.update(special);
     }
 

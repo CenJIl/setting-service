@@ -25,6 +25,8 @@ public class InformationParam implements Serializable {
     private String author;
     @ApiModelProperty(value = "案例描述", example = "描述")
     private String description;
+    @ApiModelProperty("案例内容")
+    private String content;
 
     public Integer getId() {
         return id;
@@ -80,5 +82,13 @@ public class InformationParam implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
