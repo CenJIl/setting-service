@@ -91,8 +91,21 @@ public class SettingInformation implements Serializable {
      */
     @ApiModelProperty(value = "案例描述", example = "1")
     private String description;
+    /**
+     * 案例内容
+     */
+    @ApiModelProperty("案例内容")
+    private String content;
 
     private static final long serialVersionUID = 1L;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     /**
      * 获取id

@@ -6,7 +6,7 @@ import tk.mybatis.mapper.common.MySqlMapper;
 
 /**
  * @author 魏自东
- * @date 2018/3/20 9:40
+ * @date 2018/3/20 11:22
  */
 public interface MarkCaseMapper extends Mapper<MarkCase>, MySqlMapper<MarkCase> {
 }
