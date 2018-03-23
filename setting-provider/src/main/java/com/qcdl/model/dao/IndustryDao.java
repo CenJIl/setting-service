@@ -52,10 +52,10 @@ public class IndustryDao {
     /**
      * 修改行业信息
      *
-     * @param i 行业参数
+     * @param industry 行业参数
      */
-    public void update(Industry i) {
-        mapper.updateByPrimaryKeySelective(i);
+    public void update(Industry industry) {
+        mapper.updateByPrimaryKeySelective(industry);
     }
 
     /**

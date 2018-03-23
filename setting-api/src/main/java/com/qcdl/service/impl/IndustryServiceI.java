@@ -19,6 +19,14 @@ public interface IndustryServiceI {
     List<Industry> list();
 
     /**
+     * 获取行业详情
+     *
+     * @param id 行业id
+     * @return 行业详情
+     */
+//    Industry getId(Integer id);
+
+    /**
      * 增加行业
      *
      * @param param 行业参数
@@ -45,4 +53,6 @@ public interface IndustryServiceI {
      * @return 行业级联树
      */
     List<Industry> tree();
+
+
 }

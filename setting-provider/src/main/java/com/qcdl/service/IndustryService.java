@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- *
  * @author hxh
  * @date 2018/3/14
  */
@@ -27,6 +26,12 @@ public class IndustryService implements IndustryServiceI {
     public List<Industry> list() {
         return dao.list();
     }
+
+//    @Override
+//    public Industry getId(Integer id) {
+//        Assert.notNull(id, "行业id不能为空!");
+//        return dao.getId(id);
+//    }
 
     @Override
     public void add(IndustryParam param) {
@@ -62,5 +67,6 @@ public class IndustryService implements IndustryServiceI {
                     return children;
                 });
     }
+
 
 }

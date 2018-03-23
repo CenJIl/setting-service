@@ -35,6 +35,15 @@ public class IndustryApi {
         return classifyService.list();
     }
 
+//    @GET
+//    @Path("/get/{id}")
+//    @ApiOperation(value = "获取行业详情", notes = "管理员调用，权限code：industry")
+//    @Authority(AuthType.不检查)
+//    //  @ApiImplicitParams({@ApiImplicitParam(name = "ACCESS_TOKEN", value = "接口调用凭证", dataType = "string", required = true, paramType = "query")})
+//    public Industry getId(@ApiParam(value = "行业ID", required = true) @PathParam("id") Integer id) {
+//        return classifyService.getId(id);
+//    }
+
     @POST
     @Path("/tree")
     @ApiOperation(value = "获取行业树")
