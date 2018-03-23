@@ -1,76 +1,71 @@
 package com.qcdl.model.entity;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 /**
- * @author 魏自东
- * @date 2018/3/16 11:11
+ * @author yuanhua
  */
-@ApiModel("行业")
 public class Industry implements Serializable {
     /**
-     * 分类id
+     * 行业id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty("ID")
+    @ApiModelProperty(value = "行业id")
     private Integer id;
 
     /**
-     * 分类名称
+     * 行业名称
      */
-    @ApiModelProperty("行业名称")
+    @ApiModelProperty(value = "行业名称")
     private String name;
 
     /**
-     * 分类父id(0为无父id)
+     * 行业父id(0为顶级行业)
      */
-    @ApiModelProperty("父Id，0为顶级")
+    @ApiModelProperty(value = "行业父id")
     private Integer pid;
 
     /**
      * 创建时间
      */
     @Column(name = "create_time")
-    @ApiModelProperty("创建时间")
+    @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
     /**
      * 排序,从小到大,0最小,999最大
      */
-    @ApiModelProperty(" 排序,从小到大,0最小,999最大")
+    @ApiModelProperty(value = "排序,从小到大,0最小,999最大")
     private Integer weight;
 
     /**
      * 删除状态(0.启用;1.禁用;2.删除)
      */
-    @ApiModelProperty("删除状态(0.启用;1.禁用;2.删除)")
+    @ApiModelProperty(value = "删除状态(0.启用;1.禁用;2.删除)")
     private Integer deleted;
+
+    /**
+     * 最低价格
+     */
+    @Column(name = "minimum_price")
+    @ApiModelProperty(value = "最低价格")
+    private BigDecimal minimumPrice;
 
     private static final long serialVersionUID = 1L;
 
-    @Transient
-    @ApiModelProperty("下级行业")
-    private List<Industry> children;
-
-    public List<Industry> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<Industry> children) {
-        this.children = children;
-    }
-
     /**
-     * 获取分类id
+     * 获取行业id
      *
-     * @return id - 分类id
+     * @return id - 行业id
      */
     public Integer getId() {
         return id;
@@ -86,36 +81,36 @@ public class Industry implements Serializable {
     }
 
     /**
-     * 获取分类名称
+     * 获取行业名称
      *
-     * @return name - 分类名称
+     * @return name - 行业名称
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 设置分类名称
+     * 设置行业名称
      *
-     * @param name 分类名称
+     * @param name 行业名称
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * 获取分类父id(0为无父id)
+     * 获取行业父id(0为无父id)
      *
-     * @return pid - 分类父id(0为无父id)
+     * @return pid - 行业父id(0为无父id)
      */
     public Integer getPid() {
         return pid;
     }
 
     /**
-     * 设置分类父id(0为无父id)
+     * 设置行业父id(0为顶级)
      *
-     * @param pid 分类父id(0为无父id)
+     * @param pid 行业父id(0为顶级id)
      */
     public void setPid(Integer pid) {
         this.pid = pid;
@@ -175,6 +170,24 @@ public class Industry implements Serializable {
         this.deleted = deleted;
     }
 
+    /**
+     * 获取最低价格
+     *
+     * @return minimum_price - 最低价格
+     */
+    public BigDecimal getMinimumPrice() {
+        return minimumPrice;
+    }
+
+    /**
+     * 设置最低价格
+     *
+     * @param minimumPrice 最低价格
+     */
+    public void setMinimumPrice(BigDecimal minimumPrice) {
+        this.minimumPrice = minimumPrice;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -187,6 +200,7 @@ public class Industry implements Serializable {
         sb.append(", createTime=").append(createTime);
         sb.append(", weight=").append(weight);
         sb.append(", deleted=").append(deleted);
+        sb.append(", minimumPrice=").append(minimumPrice);
         sb.append("]");
         return sb.toString();
     }
@@ -204,11 +218,12 @@ public class Industry implements Serializable {
         }
         Industry other = (Industry) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()))
-                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
-                && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()));
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()))
+            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+            && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
+            && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()))
+            && (this.getMinimumPrice() == null ? other.getMinimumPrice() == null : this.getMinimumPrice().equals(other.getMinimumPrice()));
     }
 
     @Override
@@ -221,6 +236,7 @@ public class Industry implements Serializable {
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getDeleted() == null) ? 0 : getDeleted().hashCode());
+        result = prime * result + ((getMinimumPrice() == null) ? 0 : getMinimumPrice().hashCode());
         return result;
     }
 }

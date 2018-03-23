@@ -11,5 +11,6 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="weight" jdbcType="INTEGER" property="weight" />
     <result column="deleted" jdbcType="INTEGER" property="deleted" />
+    <result column="minimum_price" jdbcType="DECIMAL" property="minimumPrice" />
   </resultMap>
 </mapper>
