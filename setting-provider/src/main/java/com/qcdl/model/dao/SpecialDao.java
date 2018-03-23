@@ -78,6 +78,7 @@ public class SpecialDao {
         special.setName(param.getName());
         special.setCover(param.getCover());
         special.setDescribed(param.getDescribed());
+        special.setContent(param.getContent());
         special.setUrl(param.getUrl());
         special.setWeight(param.getWeight());
         special.setDeleted(DeleteType.启用.getCode());
