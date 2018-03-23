@@ -20,7 +20,7 @@
         <result column="content" jdbcType="LONGVARCHAR" property="content"/>
     </resultMap>
 
-    <resultMap id="InformationDtoMap" type="com.qcdl.rest.dto.InformationDto">
+    <resultMap id="InformationDtoMap" type="com.qcdl.rest.dto.InformationDto" extends="BaseResultMap">
         <result column="industry" jdbcType="VARCHAR" property="industry"/>
     </resultMap>
 

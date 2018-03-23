@@ -55,6 +55,8 @@ public class InformationDao {
         information.setCreateTime(new Date());
         information.setVersion(0);
         information.setDeleted(DeleteType.启用.getCode());
+        information.setDescription(param.getDescription());
+        information.setContent(param.getContent());
         mapper.insertSelective(information);
     }
 
