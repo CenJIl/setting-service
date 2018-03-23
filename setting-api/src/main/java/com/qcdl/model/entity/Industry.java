@@ -2,13 +2,11 @@ package com.qcdl.model.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author yuanhua
@@ -61,6 +59,18 @@ public class Industry implements Serializable {
     private BigDecimal minimumPrice;
 
     private static final long serialVersionUID = 1L;
+
+    @Transient
+    @ApiModelProperty("下级行业")
+    private List<Industry> children;
+
+    public List<Industry> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Industry> children) {
+        this.children = children;
+    }
 
     /**
      * 获取行业id
