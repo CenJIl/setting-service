@@ -6,6 +6,7 @@ import com.qcdl.model.entity.SettingBanner;
 import com.qcdl.rest.param.BannerPageParam;
 import com.qcdl.rest.param.BannerParam;
 import com.qcdl.service.impl.BannerServiceI;
+import org.apache.commons.lang3.StringUtils;
 import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,10 @@ public class BannerService implements BannerServiceI {
 
     @Override
     public void add(BannerParam param) {
+        Assert.notNull(param, "参数不能为空！");
+        Assert.isFalse(StringUtils.isBlank(param.getName()), "名称未填写！");
+        Assert.isFalse(StringUtils.isBlank(param.getPicture()), "广告图未上传！");
+        Assert.isFalse(param.getPosition() == null || param.getPosition() < 1, "广告位未选择！");
         dao.add(param);
     }
 

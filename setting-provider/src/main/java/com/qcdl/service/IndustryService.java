@@ -5,6 +5,7 @@ import com.qcdl.model.entity.Industry;
 import com.qcdl.model.enums.DeleteType;
 import com.qcdl.rest.param.IndustryParam;
 import com.qcdl.service.impl.IndustryServiceI;
+import org.apache.commons.lang3.StringUtils;
 import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,8 @@ public class IndustryService implements IndustryServiceI {
 
     @Override
     public void add(IndustryParam param) {
+        Assert.notNull(param, "参数不能为空！");
+        Assert.isFalse(StringUtils.isBlank(param.getName()), "名称未填写！");
         dao.add(param);
     }
 

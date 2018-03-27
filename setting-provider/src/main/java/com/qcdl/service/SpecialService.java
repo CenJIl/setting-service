@@ -7,6 +7,7 @@ import com.qcdl.model.enums.DeleteType;
 import com.qcdl.rest.param.SpecialPageParam;
 import com.qcdl.rest.param.SpecialParam;
 import com.qcdl.service.impl.SpecialServiceI;
+import org.apache.commons.lang3.StringUtils;
 import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,11 @@ public class SpecialService implements SpecialServiceI {
 
     @Override
     public void add(Integer adminId, SpecialParam param) {
+        Assert.notNull(param, "参数不能为空！");
+        Assert.isFalse(StringUtils.isBlank(param.getName()), "名称未填写！");
+        Assert.isFalse(StringUtils.isBlank(param.getCover()), "封面图未上传！");
+        Assert.isFalse(StringUtils.isBlank(param.getDescribed()), "简介未填写！");
+        Assert.isFalse(StringUtils.isBlank(param.getContent()), "内容未填写！");
         dao.add(adminId, param);
     }
 

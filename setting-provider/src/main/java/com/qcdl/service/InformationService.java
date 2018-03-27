@@ -7,6 +7,7 @@ import com.qcdl.rest.dto.InformationDto;
 import com.qcdl.rest.param.InformationPageParam;
 import com.qcdl.rest.param.InformationParam;
 import com.qcdl.service.impl.InformationServiceI;
+import org.apache.commons.lang3.StringUtils;
 import org.restful.api.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,12 @@ public class InformationService implements InformationServiceI {
 
     @Override
     public void add(Integer adminId, InformationParam param) {
+        Assert.notNull(param, "参数不能为空！");
+        Assert.isFalse(StringUtils.isBlank(param.getName()), "名称未填写！");
+        Assert.isFalse(StringUtils.isBlank(param.getCover()), "封面图未上传！");
+//        Assert.isFalse(StringUtils.isBlank(param.getAuthor()), "作者未填写！");
+        Assert.isFalse(StringUtils.isBlank(param.getDescription()), "简介未填写！");
+        Assert.isFalse(StringUtils.isBlank(param.getContent()), "内容未填写！");
         dao.add(adminId, param);
     }
 
