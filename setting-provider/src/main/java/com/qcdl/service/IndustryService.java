@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * @author hxh
  * @date 2018/3/14
  */
-@Service("classifyService")
+@Service("industryService")
 public class IndustryService implements IndustryServiceI {
     @Autowired
     private IndustryDao dao;
